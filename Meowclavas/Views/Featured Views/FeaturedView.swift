@@ -27,6 +27,7 @@ struct FeaturedView: View {
             }
             .listStyle(.inset)
             .navigationTitle("Featured")
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 HStack {
                     Button {

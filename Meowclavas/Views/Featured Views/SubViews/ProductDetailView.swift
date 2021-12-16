@@ -12,97 +12,110 @@ struct ProductDetailView: View {
     @State private var isFavorite: Bool = false
     
     var body: some View {
-        VStack {
-            // product image ignoring safe area and clipped to fill
-            Image("productImage")
-                .resizable()
-                .scaledToFill()
-                .frame(
-                    width: UIScreen.main.bounds.size.width,
-                    height: UIScreen.main.bounds.size.height / 2.5
-                )
-                .clipped()
-            
-            // product name and price (sale included)
-            HStack(alignment: .bottom) {
-                Text(product.name)
-                    .font(.title)
-                    .bold()
-                Spacer()
+        ScrollView {
+            VStack {
+                // product image ignoring safe area and clipped to fill
+                Image("productImage")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(
+                        width: UIScreen.main.bounds.size.width,
+                        height: UIScreen.main.bounds.size.height / 2.5
+                    )
+                    .clipped()
                 
-                if product.saleInPercents != nil {
-                    VStack(alignment: .trailing) {
-                        Text("₼ " + String(format: "%.2f", product.nonSalePrice!))
-                            .font(.headline)
-                            .bold()
-                            .foregroundColor(.gray)
-                            .strikethrough()
-                        
+                // product name and price (sale included)
+                HStack(alignment: .bottom) {
+                    Text(product.name)
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                    
+                    if product.saleInPercents != nil {
+                        VStack(alignment: .trailing) {
+                            Text("₼ " + String(format: "%.2f", product.nonSalePrice!))
+                                .font(.headline)
+                                .bold()
+                                .foregroundColor(.gray)
+                                .strikethrough()
+                            
+                            Text("₼ " + String(format: "%.2f", product.price))
+                                .font(.title3)
+                                .bold()
+                        }
+                    } else {
                         Text("₼ " + String(format: "%.2f", product.price))
                             .font(.title3)
                             .bold()
                     }
-                } else {
-                    Text("₼ " + String(format: "%.2f", product.price))
-                        .font(.title3)
-                        .bold()
                 }
-            }
-            .padding(.horizontal)
-            
-            // Color Selection Custom UI
-            HStack {
-                Text("Color")
-                    .font(.headline)
-                Spacer()
-            }
-            .padding()
-            
-            // Size Selection Custom UI
-            HStack {
-                Text("Size")
-                    .font(.headline)
-                Spacer()
-            }
-            .padding()
-            
-            Divider()
                 .padding(.horizontal)
-            
-            // Buttons
-            HStack {
-                // Add to basket button
-                Button(action: {
-                    
-                }) {
-                    HStack {
-                        Image(systemName: "plus")
-                        Text("Add to Bag")
-                            .fontWeight(.semibold)
-                        
-                    }
-                }
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.black)
-                .cornerRadius(24)
                 
-                // Favorites button
-                Image(systemName: "heart.fill")
-                    .foregroundColor(isFavorite ? .red : .white)
-                    .padding(17)
-                    .background(.gray)
-                    .clipShape(Circle())
-                    .onTapGesture {
-                        isFavorite.toggle()
+                // Color Selection Custom UI
+                HStack {
+                    Text("Color")
+                        .font(.headline)
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.top)
+                
+                ColorPickerView()
+                
+                // Size Selection Custom UI
+                HStack {
+                    Text("Size")
+                        .font(.headline)
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                SizePickerView()
+                
+                if let description = product.description,
+                    product.description != nil {
+                    Text(description)
+                        .foregroundColor(.gray)
+                        .lineLimit(3)
+                        .padding()
+                }
+                
+                Divider()
+                    .padding(.horizontal)
+                
+                // Buttons
+                HStack {
+                    // Add to basket button
+                    Button(action: {
+                        
+                    }) {
+                        HStack {
+                            Image(systemName: "plus")
+                            Text("Add to Bag")
+                                .fontWeight(.semibold)
+                            
+                        }
                     }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(.black)
+                    .cornerRadius(24)
+                    
+                    // Favorites button
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(isFavorite ? .red : .white)
+                        .padding(17)
+                        .background(.gray)
+                        .clipShape(Circle())
+                        .onTapGesture {
+                            isFavorite.toggle()
+                        }
+                }
+                .padding()
             }
-            .padding()
-            
-            Spacer()
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

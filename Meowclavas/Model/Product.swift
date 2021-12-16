@@ -15,14 +15,15 @@ struct Product: Identifiable, Hashable, Codable {
     // properties
     var name: String
     var price: Double
-    var colors: [String]
     var category: Category
     var saleInPercents: Int?
     var nonSalePrice: Double? {
-        guard saleInPercents != nil else { return nil }
-        return price * 100 / Double((100 - saleInPercents!))
+        if let sale = saleInPercents, saleInPercents != nil {
+            return price * 100 / Double((100 - sale))
+        }  else {
+            return nil
+        }
     }
-    var size: Size?
     var description: String?
     var isFavorite: Bool?
     var isFeatured: Bool

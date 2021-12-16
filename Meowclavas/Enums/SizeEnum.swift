@@ -7,8 +7,10 @@
 
 import Foundation
 
-enum Size: String, CaseIterable, Codable {
-    case small = "small"
-    case medium = "medium"
-    case large = "large"
+enum Size: String, CaseIterable {
+    case extraSmall = "xs"
+    case small = "s"
+    case medium = "m"
+    case large = "l"
+    case extraLarge = "xl"
 }
