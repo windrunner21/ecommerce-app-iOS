@@ -46,10 +46,10 @@ struct FeaturedView: View {
                 }
             }
             .sheet(isPresented: $showingFavorites) {
-                FavoritesView()
+                FavoritesView(favoriteProducts: modelData.products)
             }
             .sheet(isPresented: $showingBasket) {
-                BasketView()
+                BasketView(bagProducts: modelData.products)
             }
         }
     }
