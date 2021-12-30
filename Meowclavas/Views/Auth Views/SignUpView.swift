@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 // TODO: create check for errors and add sign up functionality
 
 /// Authentication View that allows User to sign up via email/password method
 struct SignUpView: View {
-    // authorization enum
-    @Binding var authState: Authorization
+    // user manager environment object
+    @EnvironmentObject var userManager: UserManager
         
     // full name related variables
     @State private var fullName: String = String()
@@ -97,7 +98,7 @@ struct SignUpView: View {
                         "Password",
                         text: $password
                     ) {
-                        handleLogin(email: email, password: password)
+//                        handleLogin(email: email, password: password)
                     }
                         .focused($passwordIsFocused)
                     
@@ -124,7 +125,7 @@ struct SignUpView: View {
                 
                 // Sign up button
                 Button(action: {
-                    authState = .loggedIn
+                    //
                 }) {
                     Text("Sign Up")
                         .foregroundColor(.white)
@@ -184,10 +185,12 @@ struct SignUpView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }
+    
+    // sign up via email and password
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView(authState: .constant(.loggedOut))
+        SignUpView()
     }
 }

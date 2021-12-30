@@ -15,7 +15,7 @@ struct ProductDetailView: View {
         ScrollView {
             VStack {
                 // product image ignoring safe area and clipped to fill
-                Image("productImage")
+                product.image
                     .resizable()
                     .scaledToFill()
                     .frame(

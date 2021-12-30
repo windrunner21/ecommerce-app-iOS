@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductsView: View {
     @State private var showingFavorites: Bool = false
     @State private var showingBasket: Bool = false
-    @State private var showingProduct: Bool = false
+    @State private var productDetailed: Product? = nil
     
     var categoryName: String
     var items: [Product]
@@ -50,11 +50,11 @@ struct ProductsView: View {
                         CategoryItemView(product: product, leadingPadding: 0)
                             .padding(.vertical)
                             .onTapGesture {
-                                showingProduct.toggle()
+                                productDetailed = product
                             }
-                            .sheet(isPresented: $showingProduct) {
-                                ProductDetailView(product: product)
-                            }
+                    }
+                    .sheet(item: $productDetailed) { product in
+                        ProductDetailView(product: product)
                     }
                 }
                 

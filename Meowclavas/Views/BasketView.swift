@@ -98,22 +98,22 @@ struct BasketView: View {
                 }
                 .padding()
                 
-                Button(action: {
                 
-                }) {
+                NavigationLink(destination: PaymentView()) {
                     Text("Continue")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                         .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(.black)
+                        .cornerRadius(24)
                 }
-                .padding()
-                .background(.black)
-                .cornerRadius(24)
                 .padding()
             }
             .navigationTitle("My Bag")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .accentColor(.primary)
     }
 }
 

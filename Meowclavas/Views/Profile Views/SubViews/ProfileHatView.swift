@@ -32,6 +32,7 @@ struct ProfileHatView: View {
                 VStack(spacing: 10.0) {
                     Image("Profile Picture")
                         .resizable()
+                        .scaledToFill()
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                         .overlay {

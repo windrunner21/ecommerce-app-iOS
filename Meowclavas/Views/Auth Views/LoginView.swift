@@ -7,13 +7,14 @@
 
 import SwiftUI
 import AuthenticationServices
+import Firebase
 
-// TODO: create check for errors and add log in functionality
+// TODO: create check for errors
 
 /// Authentication View that allows User to sign in via email/password method as well as  Sign In with Apple and Google Sign in.
 struct LoginView: View {
-    // authorization enum
-    @Binding var authState: Authorization
+    // user manager environment object
+    @EnvironmentObject var userManager: UserManager
     
     // email related variables
     @State private var email: String = String()
@@ -23,6 +24,9 @@ struct LoginView: View {
     @State private var password: String = String()
     @State private var showPasswordError: Bool = false
     @FocusState private var passwordIsFocused: Bool
+    
+    // firebase error
+    @State private var firebaseError: String = String()
     
     var body: some View {
         NavigationView {
@@ -70,7 +74,7 @@ struct LoginView: View {
                             "Password",
                             text: $password
                         ) {
-                            handleLogin(email: email, password: password)
+                            loginViaEmail()
                         }
                         .focused($passwordIsFocused)
                         
@@ -86,7 +90,7 @@ struct LoginView: View {
                     if showPasswordError {
                         Text("Password cannot be empty.")
                             .font(.footnote)
-                        .foregroundColor(.red)
+                            .foregroundColor(.red)
                     }
             
                 }
@@ -94,9 +98,15 @@ struct LoginView: View {
                 .background(Color("PaperColor"))
                 .cornerRadius(10)
                 
+                if !firebaseError.isEmpty {
+                    Text(firebaseError)
+                        .font(.footnote)
+                        .foregroundColor(.red)
+                }
+                
                 // Log in button
                 Button(action: {
-                    authState = .loggedIn
+                    loginViaEmail()
                 }) {
                     Text("Log In")
                         .foregroundColor(.white)
@@ -115,7 +125,7 @@ struct LoginView: View {
                 // Sign in via Apple and Google buttons
                 HStack(spacing: 20.0) {
                     Button(action: {
-                        authState = .loggedIn
+                        print("apple log in clicked")
                     }) {
                         Image("SignInWithAppleLogo-OnlyWhite")
                     }
@@ -126,7 +136,6 @@ struct LoginView: View {
                     
                     Button(action: {
                         print("google log in clicked")
-                        authState = .loggedIn
                     }) {
                         Image("GoogleSignIn")
                     }
@@ -142,7 +151,7 @@ struct LoginView: View {
                 // Go to Sign Up Page
                 HStack {
                     Text("Don't have an account?")
-                    NavigationLink(destination: SignUpView(authState: $authState)) {
+                    NavigationLink(destination: SignUpView()) {
                         Text("Sign Up")
                             .underline()
                             .accentColor(.blue)
@@ -157,14 +166,41 @@ struct LoginView: View {
         }
         .accentColor(Color.primary)
     }
+    
+    // login via email and password
+    func loginViaEmail() {
+        
+        if email.isEmpty {
+            showEmailError = true
+        } else {
+            showEmailError = false
+        }
+        
+        if password.isEmpty {
+            showPasswordError = true
+        } else {
+            showPasswordError = false
+        }
+        
+        if !email.isEmpty && !password.isEmpty {
+            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                
+                if error != nil {
+                    print(error?.localizedDescription ?? "some error occured")
+                    
+                    firebaseError = error?.localizedDescription ?? "Error. Please try again."
+                } else {
+                    print("successfully logged in")
+                    userManager.authState = .loggedIn
+                }
+            }
+        }
+    }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(authState: .constant(.loggedOut))
+        LoginView()
     }
 }
 
-func handleLogin(email: String, password: String) {
-    print("handle login executing")
-}

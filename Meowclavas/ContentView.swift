@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
-    @State private var authState: Authorization = .loggedIn
+    @EnvironmentObject var userManager: UserManager
     @State private var tabSelection: Tab = .featured
     
     var body: some View {
         Group {
-            if authState == .loggedOut {
-                LoginView(authState: $authState)
+            if userManager.authState == .loggedOut {
+                LoginView()
             } else {
                 TabView(selection: $tabSelection) {
                     FeaturedView()
@@ -38,7 +39,7 @@ struct ContentView: View {
                 .accentColor(.primary)
             }
         }
-        .animation(.easeIn, value: authState)
+        .animation(.easeIn, value: userManager.authState)
     }
 }
 
@@ -46,5 +47,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(ModelData())
+            .environmentObject(UserManager())
     }
 }

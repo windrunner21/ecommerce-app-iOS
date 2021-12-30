@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryView: View {
     var categoryName: String
     var items: [Product]
-    @State private var showingProduct: Bool = false
+    @State private var productDetailed: Product? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,11 +25,11 @@ struct CategoryView: View {
                     ForEach(items) { product in
                         CategoryItemView(product: product, leadingPadding: 15)
                             .onTapGesture {
-                                showingProduct.toggle()
+                                productDetailed = product
                             }
-                            .sheet(isPresented: $showingProduct) {
-                                ProductDetailView(product: product)
-                            }
+                    }
+                    .sheet(item: $productDetailed) { product in
+                        ProductDetailView(product: product)
                     }
                 }
             }

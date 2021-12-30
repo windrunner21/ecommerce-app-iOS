@@ -19,7 +19,7 @@ struct CategoryItemView: View {
                     .renderingMode(.original)
                     .resizable()
                     .frame(width: 155, height: 155)
-                .cornerRadius(5)
+                    .cornerRadius(5)
                 
                 Image(systemName: "heart.fill")
                     .foregroundColor(isFavorite ? .red : .gray)

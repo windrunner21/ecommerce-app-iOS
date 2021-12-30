@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ProfileOptionsView: View {
+    @EnvironmentObject var userManager: UserManager
+    
     var body: some View {
         VStack {
             // main settings - address and personal data
@@ -73,7 +76,12 @@ struct ProfileOptionsView: View {
             .padding(.horizontal)
             
             Button(action: {
-                print("sign out")
+                do {
+                    try Auth.auth().signOut()
+                    userManager.signOutUser()
+                } catch let signOutError as NSError {
+                    print("Error while signing out: \(signOutError)")
+                }
             }) {
                 OptionRowView(
                     iconSystemName: "arrow.left.circle.fill",
