@@ -29,7 +29,7 @@ struct ProfileOptionsView: View {
                     .padding(.horizontal)
                 
                 NavigationLink {
-                    AddressView()
+                    AccountView()
                 } label: {
                     OptionRowView(
                         iconSystemName: "person.fill",

@@ -34,7 +34,7 @@ class UserManager: ObservableObject {
                 self.authErrorMessage = error?.localizedDescription ?? "Error occured. Please try again."
                 self.authState = .error
             } else {
-                // set user name
+                // set user name and email
                 UserDefaults.standard.set(Auth.auth().currentUser?.displayName, forKey: "userFullName")
                 
                 print("Successfully logged in.")
@@ -65,7 +65,7 @@ class UserManager: ObservableObject {
                 self.authErrorMessage = error?.localizedDescription ?? "Error occured. Please try again."
                 self.authState = .error
             } else {
-                // set display name to user in firebase and user defaults
+                // set display name and email to user in firebase and user defaults
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = fullName
                 
