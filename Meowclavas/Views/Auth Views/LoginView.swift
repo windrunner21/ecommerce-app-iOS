@@ -9,7 +9,7 @@ import SwiftUI
 import AuthenticationServices
 import Firebase
 
-// TODO: create check for errors
+// TODO: add google and apple sign in
 
 /// Authentication View that allows User to sign in via email/password method as well as  Sign In with Apple and Google Sign in.
 struct LoginView: View {
@@ -24,9 +24,6 @@ struct LoginView: View {
     @State private var password: String = String()
     @State private var showPasswordError: Bool = false
     @FocusState private var passwordIsFocused: Bool
-    
-    // firebase error
-    @State private var firebaseError: String = String()
     
     var body: some View {
         NavigationView {
@@ -74,7 +71,7 @@ struct LoginView: View {
                             "Password",
                             text: $password
                         ) {
-                            loginViaEmail()
+                            handleLogin()
                         }
                         .focused($passwordIsFocused)
                         
@@ -98,15 +95,22 @@ struct LoginView: View {
                 .background(Color("PaperColor"))
                 .cornerRadius(10)
                 
-                if !firebaseError.isEmpty {
-                    Text(firebaseError)
-                        .font(.footnote)
-                        .foregroundColor(.red)
+                // error or progress indicator
+                Group {
+                    if !userManager.authErrorMessage.isEmpty {
+                        Text(userManager.authErrorMessage)
+                            .font(.footnote)
+                            .foregroundColor(.red)
+                    }
+                
+                    if userManager.authState == .unknown {
+                        ProgressView()
+                    }
                 }
                 
                 // Log in button
                 Button(action: {
-                    loginViaEmail()
+                    handleLogin()
                 }) {
                     Text("Log In")
                         .foregroundColor(.white)
@@ -167,8 +171,8 @@ struct LoginView: View {
         .accentColor(Color.primary)
     }
     
-    // login via email and password
-    func loginViaEmail() {
+    // login via email and password and check for errors
+    func handleLogin() {
         
         if email.isEmpty {
             showEmailError = true
@@ -183,17 +187,7 @@ struct LoginView: View {
         }
         
         if !email.isEmpty && !password.isEmpty {
-            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-                
-                if error != nil {
-                    print(error?.localizedDescription ?? "some error occured")
-                    
-                    firebaseError = error?.localizedDescription ?? "Error. Please try again."
-                } else {
-                    print("successfully logged in")
-                    userManager.authState = .loggedIn
-                }
-            }
+            userManager.signInUser(email, and: password)
         }
     }
 }

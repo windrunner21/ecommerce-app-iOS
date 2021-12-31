@@ -76,12 +76,7 @@ struct ProfileOptionsView: View {
             .padding(.horizontal)
             
             Button(action: {
-                do {
-                    try Auth.auth().signOut()
-                    userManager.signOutUser()
-                } catch let signOutError as NSError {
-                    print("Error while signing out: \(signOutError)")
-                }
+                userManager.signOutUser()
             }) {
                 OptionRowView(
                     iconSystemName: "arrow.left.circle.fill",

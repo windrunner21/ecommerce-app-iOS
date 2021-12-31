@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-// TODO: add reset email functionality
-
 /// View that allows User to change password via email link, in case the password is forgotten.
 struct ForgotPasswordView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var userManager: UserManager
     @State private var resetEmail: String = String()
     
     var body: some View {
@@ -43,19 +43,41 @@ struct ForgotPasswordView: View {
             
             Divider()
             
-            // Log in button
-            Button(action: {
-                print("log in clicked")
-            }) {
-                Text("Send")
-                    .foregroundColor(Color(UIColor.systemBackground))
-                    .fontWeight(.semibold)
-                    .frame(maxWidth: .infinity)
+            if userManager.resetErrorMessage == "Success" {
+                // Send reset password email button
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Success! Go Back")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                }
+                .padding()
+                .background(.green)
+                .cornerRadius(24)
+                .padding([.vertical], 20)
+            } else {
+                // Send reset password email button
+                Button(action: {
+                    userManager.resetPasswordUser(resetEmail)
+                }) {
+                    Text("Send")
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                }
+                .padding()
+                .background(.primary)
+                .cornerRadius(24)
+                .padding([.vertical], 20)
             }
-            .padding()
-            .background(.primary)
-            .cornerRadius(24)
-            .padding([.vertical], 20)
+            
+            if !userManager.resetErrorMessage.isEmpty || userManager.resetErrorMessage != "Success" {
+                Text(userManager.resetErrorMessage)
+                    .font(.footnote)
+                    .foregroundColor(.red)
+            }
             
             Spacer()
         }
@@ -66,5 +88,6 @@ struct ForgotPasswordView: View {
 struct ForgotPasswordView_Previews: PreviewProvider {
     static var previews: some View {
         ForgotPasswordView()
+            .environmentObject(UserManager())
     }
 }

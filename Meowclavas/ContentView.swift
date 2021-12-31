@@ -14,7 +14,9 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            if userManager.authState == .loggedOut {
+            if userManager.authState == .loggedOut ||
+                userManager.authState == .unknown ||
+                userManager.authState == .error {
                 LoginView()
             } else {
                 TabView(selection: $tabSelection) {
