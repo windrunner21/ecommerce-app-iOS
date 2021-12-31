@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 
-// TODO: create check for errors and add sign up functionality
+// TODO: add sign up apple and google
 
 /// Authentication View that allows User to sign up via email/password method
 struct SignUpView: View {
@@ -62,8 +62,8 @@ struct SignUpView: View {
                             }
                         }
                     )
-                        .keyboardType(.namePhonePad)
-                    
+                        .autocapitalization(.words)
+
                     if showFullNameError {
                         Text("Your name cannot be empty.")
                             .font(.footnote)
@@ -98,7 +98,7 @@ struct SignUpView: View {
                         "Password",
                         text: $password
                     ) {
-//                        handleLogin(email: email, password: password)
+                        handleSignUp()
                     }
                         .focused($passwordIsFocused)
                     
@@ -113,19 +113,33 @@ struct SignUpView: View {
                 .background(Color("PaperColor"))
                 .cornerRadius(10)
                 
-                // Terms of Service Agreement accepted by default
-                HStack(alignment: .top) {
-                    Image(systemName: "checkmark.square.fill")
-                        .font(.system(size: 19))
-                    Text("by signing up you agree to terms of service and privacy policy")
-                        .font(.caption)
-                    Spacer()
+                // error or progress indicator
+                Group {
+                    if !userManager.authErrorMessage.isEmpty {
+                        Text(userManager.authErrorMessage)
+                            .font(.footnote)
+                            .foregroundColor(.red)
+                    }
+                
+                    if userManager.authState == .unknown {
+                        ProgressView()
+                    }
+                
+                    // Terms of Service Agreement accepted by default
+                    HStack(alignment: .top) {
+                        Image(systemName: "checkmark.square.fill")
+                            .font(.system(size: 19))
+                        Text("by signing up you agree to terms of service and privacy policy")
+                            .font(.caption)
+                        Spacer()
+                    }
+                    .padding([.top])
                 }
-                .padding([.top])
                 
                 // Sign up button
                 Button(action: {
-                    //
+                    passwordIsFocused = false
+                    handleSignUp()
                 }) {
                     Text("Sign Up")
                         .foregroundColor(.white)
@@ -187,6 +201,29 @@ struct SignUpView: View {
     }
     
     // sign up via email and password
+    func handleSignUp() {
+        if email.isEmpty {
+            showEmailError = true
+        } else {
+            showEmailError = false
+        }
+        
+        if password.isEmpty {
+            showPasswordError = true
+        } else {
+            showPasswordError = false
+        }
+        
+        if fullName.isEmpty {
+            showFullNameError = true
+        } else {
+            showFullNameError = false
+        }
+        
+        if !email.isEmpty && !password.isEmpty && !fullName.isEmpty {
+            userManager.signUpUser(email, and: password, for: fullName)
+        }
+    }
 }
 
 struct SignUpView_Previews: PreviewProvider {

@@ -10,55 +10,56 @@ import SwiftUI
 struct BasketView: View {
     @State private var promoCode: String = String()
     @State private var tempCount: Int = 1
-    var bagProducts: [Product]
+    @State var bagProducts: [Product]
 
-    
     var body: some View {
         NavigationView {
             VStack {
-                List(bagProducts) { product in
-                    HStack {
-                        product.image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 75, height: 75)
-                            .clipped()
-                            .cornerRadius(10)
-                        
-                        VStack(alignment: .leading) {
-                            Text(product.name)
-                                .font(.title3)
-                                .bold()
+                List {
+                    ForEach(bagProducts, id: \.self) { product in
+                        HStack {
+                            product.image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 75, height: 75)
+                                .clipped()
+                                .cornerRadius(10)
                             
-                            Text("₼ " + String(format: "%.2f", product.price))
+                            VStack(alignment: .leading) {
+                                Text(product.name)
+                                    .font(.title3)
+                                    .bold()
                                 
+                                Text("₼ " + String(format: "%.2f", product.price))
+                                    
+                                
+                                Spacer()
+                                
+                                HStack {
+                                    Text("Size: M")
+                                    Divider()
+                                    Text("Color: gray")
+                                }
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .frame(height: 25)
+                            }
                             
                             Spacer()
                             
-                            HStack {
-                                Text("Size: M")
-                                Divider()
-                                Text("Color: gray")
-                            }
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .frame(height: 25)
+                            Text(String(tempCount))
+                                .onTapGesture(count: 2) {
+                                    tempCount += 1
+                                }
+                                .onLongPressGesture {
+                                    tempCount -= 1
+                                }
+                            .padding()
+                            .background(Color(UIColor.systemGray5))
+                            .cornerRadius(24)
                         }
-                        
-                        Spacer()
-                        
-                        Text(String(tempCount))
-                            .onTapGesture(count: 2) {
-                                tempCount += 1
-                            }
-                            .onLongPressGesture {
-                                tempCount -= 1
-                            }
-                        .padding()
-                        .background(Color(UIColor.systemGray5))
-                        .cornerRadius(24)
-                        
                     }
+                    .onDelete { bagProducts.remove(atOffsets: $0) }
                     .padding(.vertical)
                 }
                 .listStyle(.inset)
@@ -122,5 +123,6 @@ struct BasketView_Previews: PreviewProvider {
         BasketView(
             bagProducts: ModelData().products
         )
+            .environmentObject(UserManager())
     }
 }

@@ -11,8 +11,7 @@ import Firebase
 class UserManager: ObservableObject {
     // identifier
     let identifier = UUID()
-    
-    // published properties
+        
     @Published var authState: Authorization
     @Published var authErrorMessage: String = String()
     @Published var resetErrorMessage: String = String()
@@ -35,6 +34,9 @@ class UserManager: ObservableObject {
                 self.authErrorMessage = error?.localizedDescription ?? "Error occured. Please try again."
                 self.authState = .error
             } else {
+                // set user name
+                UserDefaults.standard.set(Auth.auth().currentUser?.displayName, forKey: "userFullName")
+                
                 print("Successfully logged in.")
                 self.authState = .loggedIn
             }
@@ -45,10 +47,40 @@ class UserManager: ObservableObject {
     func resetPasswordUser(_ email: String) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if error != nil {
-                print(error?.localizedDescription ?? "Some error occured.")
+                print(error?.localizedDescription ?? "Sign in error occured.")
                 self.resetErrorMessage = error?.localizedDescription ?? "Error occured. Please try again."
             } else {
                 self.resetErrorMessage = "Success"
+            }
+        }
+    }
+    
+    // signing user up
+    func signUpUser(_ email: String, and password: String, for fullName: String) {
+        self.authState = .unknown
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "Sign up error occured.")
+                self.authErrorMessage = error?.localizedDescription ?? "Error occured. Please try again."
+                self.authState = .error
+            } else {
+                // set display name to user in firebase and user defaults
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = fullName
+                
+                UserDefaults.standard.set(fullName, forKey: "userFullName")
+                
+                // send email confirmation
+                Auth.auth().currentUser?.sendEmailVerification { error in
+                    if error != nil {
+                        print(error?.localizedDescription ?? "Confirmation email error occured.")
+                    }
+                }
+                
+                print("Successfully created account.")
+    
+                self.authState = .loggedIn
             }
         }
     }

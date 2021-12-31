@@ -12,6 +12,7 @@ import Firebase
 struct MeowclavasApp: App {
     @StateObject private var modelData = ModelData()
     @StateObject private var userManager = UserManager()
+    @StateObject private var dataController = DataController()
     
     init() {
         FirebaseApp.configure()
@@ -22,6 +23,7 @@ struct MeowclavasApp: App {
             ContentView()
                 .environmentObject(modelData)
                 .environmentObject(userManager)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

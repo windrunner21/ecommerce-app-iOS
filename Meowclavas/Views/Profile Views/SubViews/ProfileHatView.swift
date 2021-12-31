@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileHatView: View {
+    let fullName = UserDefaults.standard.string(forKey: "userFullName")
+    
     @State private var userQuotes: [String] = [
         "The secret of getting ahead is getting started.",
         "Everything you can imagine is real.",
@@ -15,6 +17,9 @@ struct ProfileHatView: View {
         "Do what you feel in your heart to be right – for you’ll be criticized anyway.",
         "Whatever you are, be a good one."
     ]
+    
+    // random picture generator
+    @State private var randomInt = Int.random(in: 1..<4)
     
     var body: some View {
         VStack {
@@ -30,7 +35,7 @@ struct ProfileHatView: View {
                     .blur(radius: 0.8)
                 
                 VStack(spacing: 10.0) {
-                    Image("Profile Picture")
+                    Image("Profile Picture_\(randomInt)")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 100, height: 100)
@@ -40,7 +45,7 @@ struct ProfileHatView: View {
                         }
                         .shadow(radius: 7)
                     
-                    Text("Imran Hajiyev")
+                    Text(fullName ?? "Name Not Found")
                         .foregroundColor(.white)
                         .font(.title)
                         .bold()
@@ -63,5 +68,6 @@ struct ProfileHatView: View {
 struct ProfileHatView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileHatView()
+            .environmentObject(UserManager())
     }
 }

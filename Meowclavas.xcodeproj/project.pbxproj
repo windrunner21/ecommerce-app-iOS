@@ -26,6 +26,8 @@
 		CA6EAFB72779016200FF9CEB /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFB62779016200FF9CEB /* PayView.swift */; };
 		CA6EAFB92779093000FF9CEB /* SubwayStationsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFB82779093000FF9CEB /* SubwayStationsEnum.swift */; };
 		CA6EAFBB277913A200FF9CEB /* CityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFBA277913A200FF9CEB /* CityEnum.swift */; };
+		CA6FA647277F466200C12DB9 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA6FA645277F466200C12DB9 /* UserDataModel.xcdatamodeld */; };
+		CA6FA649277F47B100C12DB9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6FA648277F47B100C12DB9 /* DataController.swift */; };
 		CA8424F92763E9A400A3546F /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8424F82763E9A400A3546F /* FeaturedView.swift */; };
 		CA8424FB2763E9EF00A3546F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8424FA2763E9EF00A3546F /* LoginView.swift */; };
 		CA8424FD2763E9F700A3546F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8424FC2763E9F700A3546F /* SignUpView.swift */; };
@@ -102,6 +104,8 @@
 		CA6EAFB62779016200FF9CEB /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		CA6EAFB82779093000FF9CEB /* SubwayStationsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayStationsEnum.swift; sourceTree = "<group>"; };
 		CA6EAFBA277913A200FF9CEB /* CityEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEnum.swift; sourceTree = "<group>"; };
+		CA6FA646277F466200C12DB9 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CA6FA648277F47B100C12DB9 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CA8424F82763E9A400A3546F /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		CA8424FA2763E9EF00A3546F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CA8424FC2763E9F700A3546F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				CAB12B9B27668473006AC793 /* productData.json */,
 				CAA096CE277E3EF5003C471D /* GoogleService-Info.plist */,
 				CAB0DB142763CC4E007F67FA /* Preview Content */,
+				CA6FA645277F466200C12DB9 /* UserDataModel.xcdatamodeld */,
+				CA6FA648277F47B100C12DB9 /* DataController.swift */,
 			);
 			path = Meowclavas;
 			sourceTree = "<group>";
@@ -574,6 +580,8 @@
 				CA6EAFB92779093000FF9CEB /* SubwayStationsEnum.swift in Sources */,
 				CAB12B9627667D8B006AC793 /* SizeEnum.swift in Sources */,
 				CABF0262276BF5EE00F27D78 /* ColorEnum.swift in Sources */,
+				CA6FA647277F466200C12DB9 /* UserDataModel.xcdatamodeld in Sources */,
+				CA6FA649277F47B100C12DB9 /* DataController.swift in Sources */,
 				CAA096DA277E4B87003C471D /* UserManager.swift in Sources */,
 				CAB0DB0F2763CC4D007F67FA /* MeowclavasApp.swift in Sources */,
 			);
@@ -960,6 +968,19 @@
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		CA6FA645277F466200C12DB9 /* UserDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CA6FA646277F466200C12DB9 /* UserDataModel.xcdatamodel */,
+			);
+			currentVersion = CA6FA646277F466200C12DB9 /* UserDataModel.xcdatamodel */;
+			path = UserDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CAB0DB032763CC4D007F67FA /* Project object */;
 }

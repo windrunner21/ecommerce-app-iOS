@@ -110,6 +110,7 @@ struct LoginView: View {
                 
                 // Log in button
                 Button(action: {
+                    passwordIsFocused = false
                     handleLogin()
                 }) {
                     Text("Log In")
