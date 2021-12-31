@@ -215,6 +215,24 @@
 			path = OptionViews;
 			sourceTree = "<group>";
 		};
+		CA6FA64C277F76FE00C12DB9 /* Navigation Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA1E49F62766B7A300DDC740 /* FavoritesView.swift */,
+				CA1E49F82766B7B800DDC740 /* BasketView.swift */,
+			);
+			path = "Navigation Views";
+			sourceTree = "<group>";
+		};
+		CA6FA64D277F772000C12DB9 /* Picker Views */ = {
+			isa = PBXGroup;
+			children = (
+				CABF025B276BE29B00F27D78 /* ColorPickerView.swift */,
+				CABF025D276BE2A500F27D78 /* SizePickerView.swift */,
+			);
+			path = "Picker Views";
+			sourceTree = "<group>";
+		};
 		CA8425042766725E00A3546F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,10 +240,8 @@
 				CA1E49FA2766B9B900DDC740 /* Featured Views */,
 				CAC9EC0D27690B8900747E8A /* Explore Views */,
 				CAC9EC132769166F00747E8A /* Profile Views */,
-				CA1E49F62766B7A300DDC740 /* FavoritesView.swift */,
-				CA1E49F82766B7B800DDC740 /* BasketView.swift */,
-				CABF025B276BE29B00F27D78 /* ColorPickerView.swift */,
-				CABF025D276BE2A500F27D78 /* SizePickerView.swift */,
+				CA6FA64C277F76FE00C12DB9 /* Navigation Views */,
+				CA6FA64D277F772000C12DB9 /* Picker Views */,
 				CAC82A872773337C003ED63C /* Payment Views */,
 			);
 			path = Views;
