@@ -15,9 +15,14 @@ struct FeaturedView: View {
     var body: some View {
         NavigationView {
             List {
-                PageView(pages: modelData.featured.map { FeaturedCardView(product: $0) })
-                    .aspectRatio(3 / 2, contentMode: .fit)
-                    .listRowInsets(EdgeInsets())
+                if !modelData.products.isEmpty {
+                    PageView(pages: modelData.featured.map { FeaturedCardView(product: $0) })
+                        .aspectRatio(3 / 2, contentMode: .fit)
+                        .listRowInsets(EdgeInsets())
+                }
+                else {
+                    ProgressView()
+                }
                 
                 ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
                     CategoryView(categoryName: key, items: modelData.categories[key]!

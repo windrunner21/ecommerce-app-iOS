@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
+    @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var userManager: UserManager
     @State private var tabSelection: Tab = .featured
     
@@ -38,7 +39,10 @@ struct ContentView: View {
                         }
                         .tag(Tab.profile)
                 }
-                .accentColor(.primary)
+                .onAppear() {
+                    modelData.fetchFromFirestore()
+                }
+                .accentColor(.primary) 
             }
         }
         .animation(.easeIn, value: userManager.authState)

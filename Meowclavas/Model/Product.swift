@@ -7,15 +7,25 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct Product: Identifiable, Hashable, Codable {
     // identifiable
-    var id: Int
+    @DocumentID var id: String?
     
     // properties
     var name: String
     var price: Double
     var category: Category
+    var isFeatured: Bool
+    
+    // private string for image
+    private var imageName: String
+    var image: Image {
+        Image(imageName)
+    }
+    
+    // optional properties
     var saleInPercents: Int?
     var nonSalePrice: Double? {
         if let sale = saleInPercents, saleInPercents != nil {
@@ -24,15 +34,9 @@ struct Product: Identifiable, Hashable, Codable {
             return nil
         }
     }
+    
     var description: String?
     var isFavorite: Bool?
-    var isFeatured: Bool
-    
-    // private string for image
-    private var imageName: String
-    var image: Image {
-        Image(imageName)
-    }
     
     var featuredImage: Image? {
         isFeatured ? Image(imageName + "_featured") : nil

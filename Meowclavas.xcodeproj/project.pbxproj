@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DB965E8D884EA2E6CAD3221 /* Pods_Meowclavas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF5F450C573B65BEED915EC /* Pods_Meowclavas.framework */; };
+		AD4818C55979975040E3EC12 /* Pods_MeowclavasTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39649FAF898CD48C7A18DF3D /* Pods_MeowclavasTests.framework */; };
+		AEB50F00AA91BBD8310D743C /* Pods_Meowclavas_MeowclavasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6FF92F8E48F2E9A149A262 /* Pods_Meowclavas_MeowclavasUITests.framework */; };
 		CA1E49EB2766A76500DDC740 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EA2766A76500DDC740 /* CategoryView.swift */; };
 		CA1E49ED2766A97100DDC740 /* CategoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EC2766A97100DDC740 /* CategoryItemView.swift */; };
 		CA1E49EF2766AF5B00DDC740 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EE2766AF5B00DDC740 /* ProductDetailView.swift */; };
@@ -26,7 +29,6 @@
 		CA6EAFB72779016200FF9CEB /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFB62779016200FF9CEB /* PayView.swift */; };
 		CA6EAFB92779093000FF9CEB /* SubwayStationsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFB82779093000FF9CEB /* SubwayStationsEnum.swift */; };
 		CA6EAFBB277913A200FF9CEB /* CityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFBA277913A200FF9CEB /* CityEnum.swift */; };
-		CA6FA647277F466200C12DB9 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA6FA645277F466200C12DB9 /* UserDataModel.xcdatamodeld */; };
 		CA6FA649277F47B100C12DB9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6FA648277F47B100C12DB9 /* DataController.swift */; };
 		CA6FA64B277F6A4E00C12DB9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6FA64A277F6A4E00C12DB9 /* AccountView.swift */; };
 		CA8424F92763E9A400A3546F /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8424F82763E9A400A3546F /* FeaturedView.swift */; };
@@ -34,13 +36,11 @@
 		CA8424FD2763E9F700A3546F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8424FC2763E9F700A3546F /* SignUpView.swift */; };
 		CA8424FF2763EA0D00A3546F /* AuthEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8424FE2763EA0D00A3546F /* AuthEnum.swift */; };
 		CA842503276669BA00A3546F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA842502276669BA00A3546F /* Launch Screen.storyboard */; };
+		CA8ED7DC27962E2F00B984FF /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED7DA27962E2F00B984FF /* DataModel.xcdatamodeld */; };
+		CA8ED7DE2796F68900B984FF /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8ED7DD2796F68900B984FF /* SerializationError.swift */; };
 		CAA096CA277DFF61003C471D /* CongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA096C9277DFF61003C471D /* CongratsView.swift */; };
 		CAA096CC277E0F42003C471D /* CashOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA096CB277E0F42003C471D /* CashOptionView.swift */; };
 		CAA096CF277E3EF5003C471D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA096CE277E3EF5003C471D /* GoogleService-Info.plist */; };
-		CAA096D2277E44B1003C471D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAA096D1277E44B1003C471D /* FirebaseAnalytics */; };
-		CAA096D4277E44B1003C471D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CAA096D3277E44B1003C471D /* FirebaseAuth */; };
-		CAA096D6277E44B1003C471D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CAA096D5277E44B1003C471D /* FirebaseFirestore */; };
-		CAA096D8277E44B1003C471D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CAA096D7277E44B1003C471D /* FirebaseStorage */; };
 		CAA096DA277E4B87003C471D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA096D9277E4B87003C471D /* UserManager.swift */; };
 		CAB0DB0F2763CC4D007F67FA /* MeowclavasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0DB0E2763CC4D007F67FA /* MeowclavasApp.swift */; };
 		CAB0DB112763CC4D007F67FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0DB102763CC4D007F67FA /* ContentView.swift */; };
@@ -52,7 +52,6 @@
 		CAB12B9427667B73006AC793 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB12B9327667B73006AC793 /* Product.swift */; };
 		CAB12B9627667D8B006AC793 /* SizeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB12B9527667D8B006AC793 /* SizeEnum.swift */; };
 		CAB12B9827668342006AC793 /* CategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB12B9727668342006AC793 /* CategoryEnum.swift */; };
-		CAB12B9C27668473006AC793 /* productData.json in Resources */ = {isa = PBXBuildFile; fileRef = CAB12B9B27668473006AC793 /* productData.json */; };
 		CAB12B9E276684A5006AC793 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB12B9D276684A5006AC793 /* ModelData.swift */; };
 		CABF025C276BE29B00F27D78 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF025B276BE29B00F27D78 /* ColorPickerView.swift */; };
 		CABF025E276BE2A500F27D78 /* SizePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABF025D276BE2A500F27D78 /* SizePickerView.swift */; };
@@ -86,6 +85,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B21C1DFBD120FD7036943A1 /* Pods-Meowclavas-MeowclavasUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meowclavas-MeowclavasUITests.debug.xcconfig"; path = "Target Support Files/Pods-Meowclavas-MeowclavasUITests/Pods-Meowclavas-MeowclavasUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		39649FAF898CD48C7A18DF3D /* Pods_MeowclavasTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeowclavasTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		502A8F5B33BA8DCC8EF32E86 /* Pods-Meowclavas-MeowclavasUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meowclavas-MeowclavasUITests.release.xcconfig"; path = "Target Support Files/Pods-Meowclavas-MeowclavasUITests/Pods-Meowclavas-MeowclavasUITests.release.xcconfig"; sourceTree = "<group>"; };
+		59BD2DC83D76DB65C8242A92 /* Pods-Meowclavas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meowclavas.debug.xcconfig"; path = "Target Support Files/Pods-Meowclavas/Pods-Meowclavas.debug.xcconfig"; sourceTree = "<group>"; };
+		718E4827EBA2824F7D9D2D1E /* Pods-Meowclavas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meowclavas.release.xcconfig"; path = "Target Support Files/Pods-Meowclavas/Pods-Meowclavas.release.xcconfig"; sourceTree = "<group>"; };
+		8B59FE9C31D6241BF7052BCB /* Pods-MeowclavasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeowclavasTests.release.xcconfig"; path = "Target Support Files/Pods-MeowclavasTests/Pods-MeowclavasTests.release.xcconfig"; sourceTree = "<group>"; };
+		B9D7797F322D03B6148717FD /* Pods-MeowclavasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeowclavasTests.debug.xcconfig"; path = "Target Support Files/Pods-MeowclavasTests/Pods-MeowclavasTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA1E49EA2766A76500DDC740 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CA1E49EC2766A97100DDC740 /* CategoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemView.swift; sourceTree = "<group>"; };
 		CA1E49EE2766AF5B00DDC740 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -105,7 +111,6 @@
 		CA6EAFB62779016200FF9CEB /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		CA6EAFB82779093000FF9CEB /* SubwayStationsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayStationsEnum.swift; sourceTree = "<group>"; };
 		CA6EAFBA277913A200FF9CEB /* CityEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEnum.swift; sourceTree = "<group>"; };
-		CA6FA646277F466200C12DB9 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
 		CA6FA648277F47B100C12DB9 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		CA6FA64A277F6A4E00C12DB9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		CA8424F82763E9A400A3546F /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
@@ -113,6 +118,8 @@
 		CA8424FC2763E9F700A3546F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		CA8424FE2763EA0D00A3546F /* AuthEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEnum.swift; sourceTree = "<group>"; };
 		CA842502276669BA00A3546F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		CA8ED7DB27962E2F00B984FF /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		CA8ED7DD2796F68900B984FF /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
 		CAA096C9277DFF61003C471D /* CongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsView.swift; sourceTree = "<group>"; };
 		CAA096CB277E0F42003C471D /* CashOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOptionView.swift; sourceTree = "<group>"; };
 		CAA096CE277E3EF5003C471D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -130,7 +137,6 @@
 		CAB12B9327667B73006AC793 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CAB12B9527667D8B006AC793 /* SizeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeEnum.swift; sourceTree = "<group>"; };
 		CAB12B9727668342006AC793 /* CategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEnum.swift; sourceTree = "<group>"; };
-		CAB12B9B27668473006AC793 /* productData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productData.json; sourceTree = "<group>"; };
 		CAB12B9D276684A5006AC793 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		CABF025B276BE29B00F27D78 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		CABF025D276BE2A500F27D78 /* SizePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePickerView.swift; sourceTree = "<group>"; };
@@ -144,6 +150,8 @@
 		CAC9EC1B276945BD00747E8A /* OptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionRowView.swift; sourceTree = "<group>"; };
 		CACD7DB927791A1C00E98AA5 /* ShippingMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingMethodView.swift; sourceTree = "<group>"; };
 		CADF42B72766745D008B44F5 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		CC6FF92F8E48F2E9A149A262 /* Pods_Meowclavas_MeowclavasUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meowclavas_MeowclavasUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF5F450C573B65BEED915EC /* Pods_Meowclavas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meowclavas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,10 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAA096D2277E44B1003C471D /* FirebaseAnalytics in Frameworks */,
-				CAA096D8277E44B1003C471D /* FirebaseStorage in Frameworks */,
-				CAA096D4277E44B1003C471D /* FirebaseAuth in Frameworks */,
-				CAA096D6277E44B1003C471D /* FirebaseFirestore in Frameworks */,
+				0DB965E8D884EA2E6CAD3221 /* Pods_Meowclavas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD4818C55979975040E3EC12 /* Pods_MeowclavasTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,12 +175,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB50F00AA91BBD8310D743C /* Pods_Meowclavas_MeowclavasUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		148A903F339933C727CB501F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59BD2DC83D76DB65C8242A92 /* Pods-Meowclavas.debug.xcconfig */,
+				718E4827EBA2824F7D9D2D1E /* Pods-Meowclavas.release.xcconfig */,
+				0B21C1DFBD120FD7036943A1 /* Pods-Meowclavas-MeowclavasUITests.debug.xcconfig */,
+				502A8F5B33BA8DCC8EF32E86 /* Pods-Meowclavas-MeowclavasUITests.release.xcconfig */,
+				B9D7797F322D03B6148717FD /* Pods-MeowclavasTests.debug.xcconfig */,
+				8B59FE9C31D6241BF7052BCB /* Pods-MeowclavasTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7BBE0ADD7C50C2B2D3B7BA5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAF5F450C573B65BEED915EC /* Pods_Meowclavas.framework */,
+				CC6FF92F8E48F2E9A149A262 /* Pods_Meowclavas_MeowclavasUITests.framework */,
+				39649FAF898CD48C7A18DF3D /* Pods_MeowclavasTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CA1E49FA2766B9B900DDC740 /* Featured Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +302,8 @@
 				CAB0DB1E2763CC4F007F67FA /* MeowclavasTests */,
 				CAB0DB282763CC4F007F67FA /* MeowclavasUITests */,
 				CAB0DB0C2763CC4D007F67FA /* Products */,
+				148A903F339933C727CB501F /* Pods */,
+				7BBE0ADD7C50C2B2D3B7BA5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,11 +327,10 @@
 				CAB12BA027668503006AC793 /* Enums */,
 				CA842502276669BA00A3546F /* Launch Screen.storyboard */,
 				CAB0DB122763CC4E007F67FA /* Assets.xcassets */,
-				CAB12B9B27668473006AC793 /* productData.json */,
 				CAA096CE277E3EF5003C471D /* GoogleService-Info.plist */,
 				CAB0DB142763CC4E007F67FA /* Preview Content */,
-				CA6FA645277F466200C12DB9 /* UserDataModel.xcdatamodeld */,
 				CA6FA648277F47B100C12DB9 /* DataController.swift */,
+				CA8ED7DA27962E2F00B984FF /* DataModel.xcdatamodeld */,
 			);
 			path = Meowclavas;
 			sourceTree = "<group>";
@@ -350,6 +381,7 @@
 				CABF0261276BF5EE00F27D78 /* ColorEnum.swift */,
 				CA6EAFB82779093000FF9CEB /* SubwayStationsEnum.swift */,
 				CA6EAFBA277913A200FF9CEB /* CityEnum.swift */,
+				CA8ED7DD2796F68900B984FF /* SerializationError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -422,21 +454,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAB0DB2F2763CC4F007F67FA /* Build configuration list for PBXNativeTarget "Meowclavas" */;
 			buildPhases = (
+				08CD37C4C74C37BB97EF520E /* [CP] Check Pods Manifest.lock */,
 				CAB0DB072763CC4D007F67FA /* Sources */,
 				CAB0DB082763CC4D007F67FA /* Frameworks */,
 				CAB0DB092763CC4D007F67FA /* Resources */,
+				1CA9149A989D9FEE453E1307 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Meowclavas;
-			packageProductDependencies = (
-				CAA096D1277E44B1003C471D /* FirebaseAnalytics */,
-				CAA096D3277E44B1003C471D /* FirebaseAuth */,
-				CAA096D5277E44B1003C471D /* FirebaseFirestore */,
-				CAA096D7277E44B1003C471D /* FirebaseStorage */,
-			);
 			productName = Meowclavas;
 			productReference = CAB0DB0B2763CC4D007F67FA /* Meowclavas.app */;
 			productType = "com.apple.product-type.application";
@@ -445,6 +473,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAB0DB322763CC4F007F67FA /* Build configuration list for PBXNativeTarget "MeowclavasTests" */;
 			buildPhases = (
+				E04F502DB63685C7D5F6297A /* [CP] Check Pods Manifest.lock */,
 				CAB0DB172763CC4F007F67FA /* Sources */,
 				CAB0DB182763CC4F007F67FA /* Frameworks */,
 				CAB0DB192763CC4F007F67FA /* Resources */,
@@ -463,9 +492,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAB0DB352763CC4F007F67FA /* Build configuration list for PBXNativeTarget "MeowclavasUITests" */;
 			buildPhases = (
+				B02092F888FE7E3A5BA6FC1B /* [CP] Check Pods Manifest.lock */,
 				CAB0DB212763CC4F007F67FA /* Sources */,
 				CAB0DB222763CC4F007F67FA /* Frameworks */,
 				CAB0DB232763CC4F007F67FA /* Resources */,
+				B7B2E42D100C160137D46154 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -509,9 +540,6 @@
 				Base,
 			);
 			mainGroup = CAB0DB022763CC4D007F67FA;
-			packageReferences = (
-				CAA096D0277E44B1003C471D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = CAB0DB0C2763CC4D007F67FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -532,7 +560,6 @@
 				CAB0DB162763CC4E007F67FA /* Preview Assets.xcassets in Resources */,
 				CAA096CF277E3EF5003C471D /* GoogleService-Info.plist in Resources */,
 				CAB0DB132763CC4E007F67FA /* Assets.xcassets in Resources */,
-				CAB12B9C27668473006AC793 /* productData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +578,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08CD37C4C74C37BB97EF520E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meowclavas-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CA9149A989D9FEE453E1307 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Meowclavas/Pods-Meowclavas-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Meowclavas/Pods-Meowclavas-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meowclavas/Pods-Meowclavas-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B02092F888FE7E3A5BA6FC1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meowclavas-MeowclavasUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7B2E42D100C160137D46154 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Meowclavas-MeowclavasUITests/Pods-Meowclavas-MeowclavasUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Meowclavas-MeowclavasUITests/Pods-Meowclavas-MeowclavasUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meowclavas-MeowclavasUITests/Pods-Meowclavas-MeowclavasUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E04F502DB63685C7D5F6297A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeowclavasTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CAB0DB072763CC4D007F67FA /* Sources */ = {
@@ -574,6 +704,7 @@
 				CACD7DBA27791A1C00E98AA5 /* ShippingMethodView.swift in Sources */,
 				CADF42B82766745D008B44F5 /* ForgotPasswordView.swift in Sources */,
 				CA1E49F32766B0F000DDC740 /* ExploreView.swift in Sources */,
+				CA8ED7DC27962E2F00B984FF /* DataModel.xcdatamodeld in Sources */,
 				CAC9EC112769162F00747E8A /* ProductsView.swift in Sources */,
 				CAB0DB112763CC4D007F67FA /* ContentView.swift in Sources */,
 				CA1E49F72766B7A300DDC740 /* FavoritesView.swift in Sources */,
@@ -583,6 +714,7 @@
 				CA1E49FE2766BA7700DDC740 /* PageViewController.swift in Sources */,
 				CA1E49F52766B0FF00DDC740 /* ProfileView.swift in Sources */,
 				CA8424FD2763E9F700A3546F /* SignUpView.swift in Sources */,
+				CA8ED7DE2796F68900B984FF /* SerializationError.swift in Sources */,
 				CAC9EC1727691FDF00747E8A /* ProfileOptionsView.swift in Sources */,
 				CA6EAFBB277913A200FF9CEB /* CityEnum.swift in Sources */,
 				CA6EAFB72779016200FF9CEB /* PayView.swift in Sources */,
@@ -600,7 +732,6 @@
 				CA6EAFB92779093000FF9CEB /* SubwayStationsEnum.swift in Sources */,
 				CAB12B9627667D8B006AC793 /* SizeEnum.swift in Sources */,
 				CABF0262276BF5EE00F27D78 /* ColorEnum.swift in Sources */,
-				CA6FA647277F466200C12DB9 /* UserDataModel.xcdatamodeld in Sources */,
 				CA6FA649277F47B100C12DB9 /* DataController.swift in Sources */,
 				CAA096DA277E4B87003C471D /* UserManager.swift in Sources */,
 				CAB0DB0F2763CC4D007F67FA /* MeowclavasApp.swift in Sources */,
@@ -758,6 +889,7 @@
 		};
 		CAB0DB302763CC4F007F67FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59BD2DC83D76DB65C8242A92 /* Pods-Meowclavas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -789,6 +921,7 @@
 		};
 		CAB0DB312763CC4F007F67FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 718E4827EBA2824F7D9D2D1E /* Pods-Meowclavas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -820,6 +953,7 @@
 		};
 		CAB0DB332763CC4F007F67FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9D7797F322D03B6148717FD /* Pods-MeowclavasTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -845,6 +979,7 @@
 		};
 		CAB0DB342763CC4F007F67FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B59FE9C31D6241BF7052BCB /* Pods-MeowclavasTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -870,6 +1005,7 @@
 		};
 		CAB0DB362763CC4F007F67FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B21C1DFBD120FD7036943A1 /* Pods-Meowclavas-MeowclavasUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -893,6 +1029,7 @@
 		};
 		CAB0DB372763CC4F007F67FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 502A8F5B33BA8DCC8EF32E86 /* Pods-Meowclavas-MeowclavasUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -955,48 +1092,14 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		CAA096D0277E44B1003C471D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CAA096D1277E44B1003C471D /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAA096D0277E44B1003C471D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		CAA096D3277E44B1003C471D /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAA096D0277E44B1003C471D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		CAA096D5277E44B1003C471D /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAA096D0277E44B1003C471D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		CAA096D7277E44B1003C471D /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CAA096D0277E44B1003C471D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCVersionGroup section */
-		CA6FA645277F466200C12DB9 /* UserDataModel.xcdatamodeld */ = {
+		CA8ED7DA27962E2F00B984FF /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CA6FA646277F466200C12DB9 /* UserDataModel.xcdatamodel */,
+				CA8ED7DB27962E2F00B984FF /* DataModel.xcdatamodel */,
 			);
-			currentVersion = CA6FA646277F466200C12DB9 /* UserDataModel.xcdatamodel */;
-			path = UserDataModel.xcdatamodeld;
+			currentVersion = CA8ED7DB27962E2F00B984FF /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

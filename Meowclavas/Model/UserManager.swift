@@ -11,7 +11,6 @@ import Firebase
 class UserManager: ObservableObject {
     // identifier
     let identifier = UUID()
-        
     @Published var authState: Authorization
     @Published var authErrorMessage: String = String()
     @Published var resetErrorMessage: String = String()
@@ -68,19 +67,27 @@ class UserManager: ObservableObject {
                 // set display name and email to user in firebase and user defaults
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = fullName
-                
-                UserDefaults.standard.set(fullName, forKey: "userFullName")
-                
-                // send email confirmation
-                Auth.auth().currentUser?.sendEmailVerification { error in
+                changeRequest?.commitChanges { error in
                     if error != nil {
-                        print(error?.localizedDescription ?? "Confirmation email error occured.")
+                        print(error?.localizedDescription ?? "Updating display name caused an error.")
+                        self.authErrorMessage = error?.localizedDescription ?? "Error occured. Please try again."
+                        self.authState = .error
+                    }
+                    else {
+                        UserDefaults.standard.set(fullName, forKey: "userFullName")
+                        
+                        // send email confirmation
+                        Auth.auth().currentUser?.sendEmailVerification { error in
+                            if error != nil {
+                                print(error?.localizedDescription ?? "Confirmation email error occured.")
+                            }
+                        }
+                        
+                        print("Successfully created account.")
+            
+                        self.authState = .loggedIn
                     }
                 }
-                
-                print("Successfully created account.")
-    
-                self.authState = .loggedIn
             }
         }
     }
