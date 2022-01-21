@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    @EnvironmentObject var favorites: Favorites
     var product: Product
-    @State private var isFavorite: Bool = false
     
     var body: some View {
         ScrollView {
@@ -104,12 +104,16 @@ struct ProductDetailView: View {
                     
                     // Favorites button
                     Image(systemName: "heart.fill")
-                        .foregroundColor(isFavorite ? .red : .white)
+                        .foregroundColor(favorites.contains(this: product) ? .red : .white)
                         .padding(17)
                         .background(.gray)
                         .clipShape(Circle())
                         .onTapGesture {
-                            isFavorite.toggle()
+                            if favorites.contains(this: product) {
+                                favorites.remove(this: product)
+                            } else {
+                                favorites.add(this: product)
+                            }
                         }
                 }
                 .padding()
