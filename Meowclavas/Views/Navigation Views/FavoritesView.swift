@@ -7,13 +7,27 @@
 
 import SwiftUI
 
+
+// TODO: what if favorites are empty
 struct FavoritesView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var favorites: Favorites
     @State var favoriteProducts: [Product]
     
     var body: some View {
         NavigationView {
-            VStack {
+            if favorites.load().isEmpty {
+                Text("Oh no! Your Wishlist is empty.")
+                    .navigationTitle("Wishlist")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button("Start Adding") {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                            .foregroundColor(.primary)
+                        }
+                    }
+            } else {
                 List {
                     ForEach(favoriteProducts, id: \.self) { product in
                         HStack {
@@ -54,23 +68,25 @@ struct FavoritesView: View {
                             }
                         }
                     }
-                    .onDelete { favoriteProducts.remove(atOffsets: $0) }
+                    .onDelete() {
+                        favorites.remove(this: favoriteProducts[$0.first!])
+                        favoriteProducts.remove(atOffsets: $0)
+                    }
                     .padding(.vertical)
                 }
-            }
-            .navigationTitle("Wishlist")
-            .toolbar {
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                    .foregroundColor(.primary)
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                .navigationTitle("Wishlist")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Back") {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                         .foregroundColor(.primary)
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                            .foregroundColor(.primary)
+                    }
                 }
             }
         }

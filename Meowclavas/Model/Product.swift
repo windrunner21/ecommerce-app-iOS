@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseFirestoreSwift
 
-struct Product: Identifiable, Hashable, Codable {
+struct Product: Identifiable, Hashable, Codable {    
     // identifiable
     @DocumentID var id: String?
     
@@ -27,6 +27,9 @@ struct Product: Identifiable, Hashable, Codable {
     
     // optional properties
     var saleInPercents: Int?
+    var description: String?
+    
+    // computed optional properties
     var nonSalePrice: Double? {
         if let sale = saleInPercents, saleInPercents != nil {
             return price * 100 / Double((100 - sale))
@@ -34,10 +37,6 @@ struct Product: Identifiable, Hashable, Codable {
             return nil
         }
     }
-    
-    var description: String?
-    var isFavorite: Bool?
-    
     var featuredImage: Image? {
         isFeatured ? Image(imageName + "_featured") : nil
     }

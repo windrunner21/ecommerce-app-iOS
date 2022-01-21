@@ -42,6 +42,7 @@
 		CAA096CC277E0F42003C471D /* CashOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA096CB277E0F42003C471D /* CashOptionView.swift */; };
 		CAA096CF277E3EF5003C471D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA096CE277E3EF5003C471D /* GoogleService-Info.plist */; };
 		CAA096DA277E4B87003C471D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA096D9277E4B87003C471D /* UserManager.swift */; };
+		CAA29B95279B32C800338CE7 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA29B94279B32C800338CE7 /* Favorites.swift */; };
 		CAB0DB0F2763CC4D007F67FA /* MeowclavasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0DB0E2763CC4D007F67FA /* MeowclavasApp.swift */; };
 		CAB0DB112763CC4D007F67FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0DB102763CC4D007F67FA /* ContentView.swift */; };
 		CAB0DB132763CC4E007F67FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB0DB122763CC4E007F67FA /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 		CAA096CB277E0F42003C471D /* CashOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOptionView.swift; sourceTree = "<group>"; };
 		CAA096CE277E3EF5003C471D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAA096D9277E4B87003C471D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		CAA29B94279B32C800338CE7 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		CAB0DB0B2763CC4D007F67FA /* Meowclavas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meowclavas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB0DB0E2763CC4D007F67FA /* MeowclavasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowclavasApp.swift; sourceTree = "<group>"; };
 		CAB0DB102763CC4D007F67FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				CAB12B9D276684A5006AC793 /* ModelData.swift */,
 				CA6EAFB02778FCB900FF9CEB /* Stepper.swift */,
 				CAA096D9277E4B87003C471D /* UserManager.swift */,
+				CAA29B94279B32C800338CE7 /* Favorites.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				CA6FA64B277F6A4E00C12DB9 /* AccountView.swift in Sources */,
 				CABF025C276BE29B00F27D78 /* ColorPickerView.swift in Sources */,
 				CA1E49FE2766BA7700DDC740 /* PageViewController.swift in Sources */,
+				CAA29B95279B32C800338CE7 /* Favorites.swift in Sources */,
 				CA1E49F52766B0FF00DDC740 /* ProfileView.swift in Sources */,
 				CA8424FD2763E9F700A3546F /* SignUpView.swift in Sources */,
 				CA8ED7DE2796F68900B984FF /* SerializationError.swift in Sources */,

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CategoryItemView: View {
+    @EnvironmentObject var favorites: Favorites
     var product: Product
-    @State private var isFavorite: Bool = false
     var leadingPadding: CGFloat?
     
     var body: some View {
@@ -22,13 +22,17 @@ struct CategoryItemView: View {
                     .cornerRadius(5)
                 
                 Image(systemName: "heart.fill")
-                    .foregroundColor(isFavorite ? .red : .gray)
+                    .foregroundColor(favorites.contains(this: product) ? .red : .gray)
                     .padding(10)
                     .background(.white)
                     .clipShape(Circle())
                     .padding(5)
                     .onTapGesture {
-                        isFavorite.toggle()
+                        if favorites.contains(this: product) {
+                            favorites.remove(this: product)
+                        } else {
+                            favorites.add(this: product)
+                        }
                     }
             }
             

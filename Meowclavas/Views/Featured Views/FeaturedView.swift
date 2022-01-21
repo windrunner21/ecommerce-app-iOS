@@ -8,53 +8,80 @@
 import SwiftUI
 
 struct FeaturedView: View {
+    @EnvironmentObject var favorites: Favorites
     @EnvironmentObject var modelData: ModelData
     @State private var showingFavorites: Bool = false
     @State private var showingBasket: Bool = false
     
     var body: some View {
         NavigationView {
-            List {
-                if !modelData.products.isEmpty {
-                    PageView(pages: modelData.featured.map { FeaturedCardView(product: $0) })
-                        .aspectRatio(3 / 2, contentMode: .fit)
-                        .listRowInsets(EdgeInsets())
-                }
-                else {
-                    ProgressView()
-                }
-                
-                ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
-                    CategoryView(categoryName: key, items: modelData.categories[key]!
-                    )
-                }
-                .listRowInsets(EdgeInsets())
-            }
-            .listStyle(.inset)
-            .navigationTitle("Featured")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                HStack {
-                    Button {
-                        showingFavorites.toggle()
-                    } label: {
-                        Label("Favorites", systemImage: "heart")
-                            .foregroundColor(.primary)
+            if !modelData.products.isEmpty {
+                List {
+                    if !modelData.products.isEmpty {
+                        PageView(pages: modelData.featured.map { FeaturedCardView(product: $0) })
+                            .aspectRatio(3 / 2, contentMode: .fit)
+                            .listRowInsets(EdgeInsets())
                     }
                     
-                    Button {
-                        showingBasket.toggle()
-                    } label: {
-                        Label("Shoping Bag", systemImage: "bag.fill")
-                            .foregroundColor(.primary)
+                    ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
+                        CategoryView(categoryName: key, items: modelData.categories[key]!
+                        )
+                    }
+                    .listRowInsets(EdgeInsets())
+                }
+                .listStyle(.inset)
+                .navigationTitle("Featured")
+                .navigationBarTitleDisplayMode(.large)
+                .toolbar {
+                    HStack {
+                        Button {
+                            showingFavorites.toggle()
+                        } label: {
+                            Label("Favorites", systemImage: "heart")
+                                .foregroundColor(.primary)
+                        }
+                        
+                        Button {
+                            showingBasket.toggle()
+                        } label: {
+                            Label("Shoping Bag", systemImage: "bag.fill")
+                                .foregroundColor(.primary)
+                        }
                     }
                 }
-            }
-            .sheet(isPresented: $showingFavorites) {
-                FavoritesView(favoriteProducts: modelData.products)
-            }
-            .sheet(isPresented: $showingBasket) {
-                BasketView(bagProducts: modelData.products)
+                .sheet(isPresented: $showingFavorites) {
+                    FavoritesView(favoriteProducts: modelData.products.filter { favorites.load().contains($0.id!) })
+                }
+                .sheet(isPresented: $showingBasket) {
+                    BasketView(bagProducts: modelData.products)
+                }
+            } else {
+                ProgressView()
+                    .navigationTitle("Featured")
+                    .navigationBarTitleDisplayMode(.large)
+                    .toolbar {
+                        HStack {
+                            Button {
+                                showingFavorites.toggle()
+                            } label: {
+                                Label("Favorites", systemImage: "heart")
+                                    .foregroundColor(.primary)
+                            }
+                            
+                            Button {
+                                showingBasket.toggle()
+                            } label: {
+                                Label("Shoping Bag", systemImage: "bag.fill")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $showingFavorites) {
+                        FavoritesView(favoriteProducts: modelData.products)
+                    }
+                    .sheet(isPresented: $showingBasket) {
+                        BasketView(bagProducts: modelData.products)
+                    }
             }
         }
     }
