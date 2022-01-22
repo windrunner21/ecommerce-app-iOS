@@ -12,6 +12,7 @@ import SwiftUI
 struct FavoritesView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var favorites: Favorites
+    @EnvironmentObject var baggies: Baggies
     @State var favoriteProducts: [Product]
     
     var body: some View {
@@ -67,9 +68,13 @@ struct FavoritesView: View {
                             Spacer()
                             
                             Button(action: {
-                                print("moved")
+                                if baggies.contains(this: product) {
+                                    baggies.removeCompletely(this: product)
+                                } else {
+                                    baggies.add(this: product)
+                                }
                             }) {
-                                Image(systemName: "bag.badge.plus")
+                                Image(systemName: baggies.contains(this: product) ? "bag.badge.minus" : "bag.badge.plus")
                                     .foregroundColor(.primary)
                             }
                         }
