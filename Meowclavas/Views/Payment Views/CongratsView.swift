@@ -14,20 +14,18 @@ struct CongratsView: View {
         VStack(spacing: 20.0) {
             Spacer()
             
-            Image(systemName: "checkmark")
-                .font(.system(size: 80))
-                .padding(40)
-                .background(.ultraThinMaterial)
-                .clipShape(Circle())
+            LottieView(name: "success", loopMode: .playOnce)
+                .frame(height: UIScreen.main.bounds.size.height / 6)
             
             Text("Congrats!")
                 .font(.largeTitle)
                 .bold()
             
-            Text("Thank you for choosing us. Your order will be shipped in 2-4 working days")
+            Text("Thank you for choosing us. Your order will be shipped in 1-2 working days.")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
+                .padding(.horizontal, 5)
             
             Spacer()
             
