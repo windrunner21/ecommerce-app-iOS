@@ -22,6 +22,7 @@
 		CA1E4A002766BE5100DDC740 /* FeaturedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49FF2766BE5100DDC740 /* FeaturedCardView.swift */; };
 		CA1E4A022766C0C500DDC740 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E4A012766C0C500DDC740 /* PageView.swift */; };
 		CA1E4A042767757B00DDC740 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E4A032767757B00DDC740 /* PageControlView.swift */; };
+		CA59937D279CA9E1002632A6 /* PromoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59937C279CA9E1002632A6 /* PromoCode.swift */; };
 		CA6EAFAD2778F85F00FF9CEB /* DotSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFAC2778F85F00FF9CEB /* DotSpacerView.swift */; };
 		CA6EAFAF2778F8E700FF9CEB /* StepIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFAE2778F8E700FF9CEB /* StepIndicatorView.swift */; };
 		CA6EAFB12778FCB900FF9CEB /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFB02778FCB900FF9CEB /* Stepper.swift */; };
@@ -109,6 +110,7 @@
 		CA1E49FF2766BE5100DDC740 /* FeaturedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCardView.swift; sourceTree = "<group>"; };
 		CA1E4A012766C0C500DDC740 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		CA1E4A032767757B00DDC740 /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
+		CA59937C279CA9E1002632A6 /* PromoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCode.swift; sourceTree = "<group>"; };
 		CA6EAFAC2778F85F00FF9CEB /* DotSpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSpacerView.swift; sourceTree = "<group>"; };
 		CA6EAFAE2778F8E700FF9CEB /* StepIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepIndicatorView.swift; sourceTree = "<group>"; };
 		CA6EAFB02778FCB900FF9CEB /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				CAA096D9277E4B87003C471D /* UserManager.swift */,
 				CAA29B94279B32C800338CE7 /* Favorites.swift */,
 				CAA29B96279BE8FA00338CE7 /* Baggies.swift */,
+				CA59937C279CA9E1002632A6 /* PromoCode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				CA8424FD2763E9F700A3546F /* SignUpView.swift in Sources */,
 				CA8ED7DE2796F68900B984FF /* SerializationError.swift in Sources */,
 				CAC9EC1727691FDF00747E8A /* ProfileOptionsView.swift in Sources */,
+				CA59937D279CA9E1002632A6 /* PromoCode.swift in Sources */,
 				CA6EAFBB277913A200FF9CEB /* CityEnum.swift in Sources */,
 				CA6EAFB72779016200FF9CEB /* PayView.swift in Sources */,
 				CA6EAFB5277900BC00FF9CEB /* ShippingView.swift in Sources */,

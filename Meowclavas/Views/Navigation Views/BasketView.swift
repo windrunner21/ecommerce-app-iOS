@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct BasketView: View {
+    @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var baggies: Baggies
     @State var bagProducts: [Product]
     @State private var promoCode: String = String()
     @State private var showingHelp: Bool = false
+    @State private var codePriceOff: Int = 0
     var totalPrice: Double {
         var tempPrice = 0.0
         
@@ -20,6 +22,9 @@ struct BasketView: View {
         }
         
         return tempPrice
+    }
+    var totalPriceWithSale: Double {
+        return totalPrice * Double(100 - codePriceOff) / 100
     }
     
     var body: some View {
@@ -101,22 +106,45 @@ struct BasketView: View {
                             .font(.title3)
                             .bold()
                             .foregroundColor(.gray)
+                        
                         Spacer()
-                        TextField("enter code", text: $promoCode)
-                            .font(.system(size: 19, weight: .bold))
-                            .multilineTextAlignment(.trailing)
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.gray)
-                            .onTapGesture {
-                                promoCode = String()
-                            }
+                        
+                        // if code applied show code and check else can write new code
+                        if codePriceOff != 0 {
+                            Text(promoCode)
+                                .font(.system(size: 19, weight: .bold))
+                                .multilineTextAlignment(.trailing)
+                            
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        } else {
+                            TextField(
+                                "enter code",
+                                text: Binding(
+                                    get: { self.promoCode },
+                                    set: {
+                                        self.promoCode = $0.uppercased().filter {!$0.isWhitespace}
+                                    }),
+                                onCommit: {
+                                    checkAndApplyPromoCode(promoCode)
+                                }
+                                )
+                                .font(.system(size: 19, weight: .bold))
+                                .multilineTextAlignment(.trailing)
+                            
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.gray)
+                                .onTapGesture {
+                                    promoCode = String()
+                                }
+                        }
                     }
                     .padding()
                     
                     Divider()
                         .padding(.horizontal)
                     
-                    HStack {
+                    HStack(alignment: .bottom) {
                         Text("Total amount")
                             .font(.title3)
                             .bold()
@@ -124,10 +152,26 @@ struct BasketView: View {
                         
                         Spacer()
                         
-                        Text("₼ " + String(format: "%.2f", totalPrice))
-                            .font(.title3)
-                            .bold()
-                            .foregroundColor(.gray)
+                        if codePriceOff != 0 {
+                            VStack(alignment: .trailing) {
+                                Text("₼ " + String(format: "%.2f", totalPrice))
+                                    .font(.headline)
+                                    .strikethrough()
+                                    .bold()
+                                    .foregroundColor(.gray)
+
+                                
+                                Text("₼ " + String(format: "%.2f", totalPriceWithSale))
+                                    .font(.title3)
+                                    .bold()
+                                    .foregroundColor(.gray)
+                            }
+                        } else {
+                            Text("₼ " + String(format: "%.2f", totalPrice))
+                                .font(.title3)
+                                .bold()
+                                .foregroundColor(.gray)
+                        }
                     }
                     .padding()
                     
@@ -164,7 +208,20 @@ struct BasketView: View {
                 }
             }
         }
+        .onAppear() {
+            modelData.fetchPromoCodes()
+        }
         .accentColor(.primary)
+    }
+    
+    
+    // check promo code, if valid apply discount
+    func checkAndApplyPromoCode(_ code: String) {
+        for promocode in modelData.promoCodes {
+            if promocode.code == code {
+                codePriceOff = promocode.off
+            }
+        }
     }
 }
 
