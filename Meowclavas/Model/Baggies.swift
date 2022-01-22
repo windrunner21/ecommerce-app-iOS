@@ -9,7 +9,7 @@ import SwiftUI
 
 class Baggies: ObservableObject {
     // products that user added to shopping cart
-    private var products: Set<String>
+    private var products: Dictionary<String, Int>
     
     // key to write/read from UserDeaults
     private let saveKey: String = "Baggies"
@@ -22,7 +22,7 @@ class Baggies: ObservableObject {
                 let decoder = JSONDecoder()
 
                 // Decode product
-                let productsDecoded = try decoder.decode(Set<String>.self, from: data)
+                let productsDecoded = try decoder.decode(Dictionary<String, Int>.self, from: data)
                 self.products = productsDecoded
                 return
             } catch {
@@ -30,25 +30,52 @@ class Baggies: ObservableObject {
             }
         }
         
-        self.products = []
+        self.products = [:]
     }
     
     // check if set contains products
     func contains(this product: Product) -> Bool {
-        products.contains(product.id!)
+        products[product.id!] != nil
     }
     
     // adds the product to our set, updates all views, and saves the change
     func add(this product: Product) {
         objectWillChange.send()
-        products.insert(product.id!)
+        
+        if let productFound = products[product.id!] {
+            var quantityToBeUpdated = productFound
+            quantityToBeUpdated += 1
+            
+            products[product.id!] = quantityToBeUpdated
+        } else {
+            products[product.id!] = 1
+        }
+        
         save()
     }
     
     // removes the product from our set, updates all views, and saves the change
     func remove(this product: Product) {
         objectWillChange.send()
-        products.remove(product.id!)
+        
+        if let productFound = products[product.id!] {
+            var quantityToBeUpdated = productFound
+            
+            if quantityToBeUpdated <= 1 {
+                products[product.id!] = nil
+            } else {
+                quantityToBeUpdated -= 1
+                products[product.id!] = quantityToBeUpdated
+            }
+        }
+        
+        save()
+    }
+    
+    // remove element completely
+    func removeCompletely(this product: Product) {
+        objectWillChange.send()
+        products[product.id!] = nil
         save()
     }
     
@@ -65,11 +92,11 @@ class Baggies: ObservableObject {
             UserDefaults.standard.set(data, forKey: saveKey)
 
         } catch {
-            print("Unable to Encode Array of Baggies: (\(error))")
+            print("Unable to Encode Dictionary of Baggies: (\(error))")
         }
     }
     
-    func load() -> Set<String> {
+    func load() -> Dictionary<String, Int> {
         products
     }
 }

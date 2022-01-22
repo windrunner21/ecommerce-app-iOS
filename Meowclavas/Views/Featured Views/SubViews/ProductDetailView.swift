@@ -75,10 +75,14 @@ struct ProductDetailView: View {
                 
                 if let description = product.description,
                     product.description != nil {
-                    Text(description)
-                        .foregroundColor(.gray)
-                        .lineLimit(3)
-                        .padding()
+                    HStack {
+                        Text(description)
+                            .foregroundColor(.gray)
+                            .lineLimit(3)
+                            .padding()
+                        
+                        Spacer()
+                    }
                 }
                 
                 Divider()
@@ -89,7 +93,7 @@ struct ProductDetailView: View {
                     // Add to basket button
                     Button(action: {
                         if baggies.contains(this: product) {
-                            baggies.remove(this: product)
+                            baggies.removeCompletely(this: product)
                         } else {
                             baggies.add(this: product)
                         }

@@ -10,6 +10,7 @@ import Firebase
 
 struct ProfileOptionsView: View {
     @EnvironmentObject var userManager: UserManager
+    @State private var showingAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -76,7 +77,7 @@ struct ProfileOptionsView: View {
             .padding(.horizontal)
             
             Button(action: {
-                userManager.signOutUser()
+                showingAlert = true
             }) {
                 OptionRowView(
                     iconSystemName: "arrow.left.circle.fill",
@@ -87,6 +88,16 @@ struct ProfileOptionsView: View {
                     .background(Color(UIColor.systemBackground))
                     .cornerRadius(10)
                     .padding([.top, .horizontal])
+            }
+            .alert(isPresented:$showingAlert) {
+                Alert(
+                    title: Text("Are you sure you want to sign out?"),
+                    message: Text("You will need to sing in again to use the application."),
+                    primaryButton: .destructive(Text("Sign Out")) {
+                        userManager.signOutUser()
+                    },
+                    secondaryButton: .cancel()
+                )
             }
 
         }

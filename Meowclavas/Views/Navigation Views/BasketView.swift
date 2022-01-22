@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct BasketView: View {
-    @State private var promoCode: String = String()
-    @State private var tempCount: Int = 1
     @EnvironmentObject var baggies: Baggies
     @State var bagProducts: [Product]
+    @State private var promoCode: String = String()
+    @State private var showingHelp: Bool = false
     var totalPrice: Double {
         var tempPrice = 0.0
         
         for product in bagProducts {
-            tempPrice += product.price
+            tempPrice += (product.price * Double(baggies.load()[product.id!]!))
         }
         
         return tempPrice
     }
-
+    
     var body: some View {
         NavigationView {
             if baggies.load().isEmpty {
@@ -68,22 +68,33 @@ struct BasketView: View {
                                 
                                 Spacer()
                                 
-                                Text(String(tempCount))
-                                    .onTapGesture(count: 2) {
-                                        tempCount += 1
-                                    }
-                                    .onLongPressGesture {
-                                        tempCount -= 1
-                                    }
+                                Text(String(baggies.load()[product.id!]!))
                                 .padding()
-                                .background(Color(UIColor.systemGray5))
+                                .background(Color(UIColor.systemGray4))
                                 .cornerRadius(24)
                             }
+                            .swipeActions(edge: .leading) {
+                                Button("Add") {
+                                    baggies.add(this: product)
+                                }
+                                .tint(.indigo)
+                            }
+                            .swipeActions(edge: .trailing) {
+                                Button("Delete") {
+                                    baggies.remove(this: product)
+                                    
+                                    // remove only if dictionary is completely empty
+                                    if !baggies.load().keys.contains(product.id!) {
+                                        if let index = bagProducts.firstIndex(of: product) {
+                                            bagProducts.remove(at: index)
+                                        }
+                                    }
+                                }
+                                .tint(.red)
+                            }
                         }
-                        .onDelete(perform: delete)
                         .padding(.vertical)
                     }
-                    .listStyle(.inset)
                     
                     HStack {
                         Text("Promo code")
@@ -133,23 +144,27 @@ struct BasketView: View {
                     .padding()
                 }
                 .navigationTitle("My Bag")
-                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        HStack {
+                            if showingHelp {
+                                Text("Bag items are swipeable. Left to delete. Right to add.")
+                                    .font(.caption)
+                                    .fontWeight(.light)
+                            }
+                            
+                            Button() {
+                                showingHelp.toggle()
+                            } label: {
+                                Image(systemName: showingHelp ? "checkmark.bubble" : "exclamationmark.bubble")
+                            }
+                            .foregroundColor(.blue)
+                        }
+                    }
+                }
             }
         }
         .accentColor(.primary)
-    }
-    
-    // delete from basket
-    func delete(at offsets: IndexSet) {
-        if baggies.load().count == 1 {
-            withAnimation(.easeInOut) {
-                baggies.remove(this: bagProducts[offsets.first!])
-                bagProducts.remove(atOffsets: offsets)
-            }
-        } else {
-            baggies.remove(this: bagProducts[offsets.first!])
-            bagProducts.remove(atOffsets: offsets)
-        }
     }
 }
 
