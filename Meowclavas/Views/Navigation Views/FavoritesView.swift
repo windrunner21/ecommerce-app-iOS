@@ -17,16 +17,22 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             if favorites.load().isEmpty {
-                Text("Oh no! Your Wishlist is empty.")
-                    .navigationTitle("Wishlist")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button("Start Adding") {
-                                presentationMode.wrappedValue.dismiss()
-                            }
-                            .foregroundColor(.primary)
+                VStack {
+                    Spacer()
+                    LottieView(name: "wishlist-empty", loopMode: .loop)
+                        .frame(width: UIScreen.main.bounds.size.width / 1.5, height: UIScreen.main.bounds.size.height / 4)
+                    Text("Hmm! Can't find anything in your wishlist.")
+                    Spacer()
+                }
+                .navigationTitle("Wishlist")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Continue Shopping") {
+                            presentationMode.wrappedValue.dismiss()
                         }
+                        .foregroundColor(.primary)
                     }
+                }
             } else {
                 List {
                     ForEach(favoriteProducts, id: \.self) { product in

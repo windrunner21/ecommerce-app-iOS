@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    @EnvironmentObject var baggies: Baggies
     @EnvironmentObject var favorites: Favorites
     var product: Product
     
@@ -87,11 +88,15 @@ struct ProductDetailView: View {
                 HStack {
                     // Add to basket button
                     Button(action: {
-                        
+                        if baggies.contains(this: product) {
+                            baggies.remove(this: product)
+                        } else {
+                            baggies.add(this: product)
+                        }
                     }) {
                         HStack {
-                            Image(systemName: "plus")
-                            Text("Add to Bag")
+                            Image(systemName: baggies.contains(this: product) ? "checkmark" : "plus")
+                            Text(baggies.contains(this: product) ? "Added to Bag": "Add to Bag")
                                 .fontWeight(.semibold)
                             
                         }

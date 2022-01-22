@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FeaturedView: View {
+    @EnvironmentObject var baggies: Baggies
     @EnvironmentObject var favorites: Favorites
     @EnvironmentObject var modelData: ModelData
     @State private var showingFavorites: Bool = false
@@ -53,7 +54,7 @@ struct FeaturedView: View {
                     FavoritesView(favoriteProducts: modelData.products.filter { favorites.load().contains($0.id!) })
                 }
                 .sheet(isPresented: $showingBasket) {
-                    BasketView(bagProducts: modelData.products)
+                    BasketView(bagProducts: modelData.products.filter { baggies.load().contains($0.id!) })
                 }
             } else {
                 ProgressView()
@@ -77,10 +78,10 @@ struct FeaturedView: View {
                         }
                     }
                     .sheet(isPresented: $showingFavorites) {
-                        FavoritesView(favoriteProducts: modelData.products)
+                        FavoritesView(favoriteProducts: modelData.products.filter { favorites.load().contains($0.id!) })
                     }
                     .sheet(isPresented: $showingBasket) {
-                        BasketView(bagProducts: modelData.products)
+                        BasketView(bagProducts: modelData.products.filter { baggies.load().contains($0.id!) })
                     }
             }
         }

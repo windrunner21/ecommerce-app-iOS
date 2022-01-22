@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @EnvironmentObject var baggies: Baggies
     @EnvironmentObject var favorites: Favorites
     @EnvironmentObject var modelData: ModelData
     @State private var showingFavorites: Bool = false
@@ -51,7 +52,7 @@ struct ExploreView: View {
                 FavoritesView(favoriteProducts: modelData.products.filter { favorites.load().contains($0.id!) })
             }
             .sheet(isPresented: $showingBasket) {
-                BasketView(bagProducts: modelData.products)
+                BasketView(bagProducts: modelData.products.filter { baggies.load().contains($0.id!) })
             }
         }
     }

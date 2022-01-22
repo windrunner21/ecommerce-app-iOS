@@ -13,6 +13,7 @@ struct MeowclavasApp: App {
     @StateObject private var modelData = ModelData()
     @StateObject private var userManager = UserManager()
     @StateObject private var dataController = DataController()
+    @ObservedObject var baggies = Baggies()
     @ObservedObject var favorites = Favorites()
     
     init() {
@@ -24,6 +25,7 @@ struct MeowclavasApp: App {
             ContentView()
                 .environmentObject(modelData)
                 .environmentObject(userManager)
+                .environmentObject(baggies)
                 .environmentObject(favorites)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
