@@ -61,9 +61,7 @@ struct CashOptionView: View {
                         TextField("amount", text: $amount)
                             .textFieldStyle(.roundedBorder)
                             .keyboardType(.numberPad)
-                            .frame(width: UIScreen.main.bounds.size.width / 3)
                             .focused($isFocused)
-                        Spacer()
                         
                         Button(action: {
                             isFocused = false

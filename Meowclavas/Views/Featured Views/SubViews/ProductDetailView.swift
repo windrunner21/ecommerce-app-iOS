@@ -8,22 +8,37 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var baggies: Baggies
     @EnvironmentObject var favorites: Favorites
+    @State private var headSizeInSm: Int = 0
+    @FocusState private var isFocused: Bool
     var product: Product
     
     var body: some View {
         ScrollView {
             VStack {
-                // product image ignoring safe area and clipped to fill
-                product.image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(
-                        width: UIScreen.main.bounds.size.width,
-                        height: UIScreen.main.bounds.size.height / 2.5
-                    )
-                    .clipped()
+                ZStack(alignment: .topLeading) {
+                    // product image ignoring safe area and clipped to fill
+                    product.image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(
+                            width: UIScreen.main.bounds.size.width,
+                            height: UIScreen.main.bounds.size.height / 2.5
+                        )
+                        .clipped()
+                    
+                    Button(){
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                    }
+                    .font(.system(size: 30))
+                    .foregroundColor(.white)
+                    .padding([.leading, .top], 8)
+                }
                 
                 // product name and price (sale included)
                 HStack(alignment: .bottom) {
@@ -71,7 +86,41 @@ struct ProductDetailView: View {
                 }
                 .padding(.horizontal)
                 
-                SizePickerView()
+                SizePickerView(product: product)
+                
+                if var currentOrder = modelData.orders.first(where: {$0.id == product.id!}) {
+                    if currentOrder.size.rawValue == "Custom" {
+                        HStack {
+                            Text("Head size (sm)")
+                            TextField("Enter", value: $headSizeInSm, formatter: NumberFormatter())
+                                .textFieldStyle(.roundedBorder)
+                                .keyboardType(.numberPad)
+                                .focused($isFocused)
+                                .onAppear() {
+                                    headSizeInSm = currentOrder.sizeInSm ?? headSizeInSm
+                                }
+                            
+                            Button(action: {
+                                guard let currentOrderIndex = modelData.orders.firstIndex(where: {$0.id == product.id!}) else {return}
+                                currentOrder.sizeInSm = headSizeInSm
+                                
+                                modelData.orders[currentOrderIndex] = currentOrder
+                                isFocused = false
+                            }) {
+                                Text("OK")
+                                    .foregroundColor(Color(UIColor.systemBackground))
+                                    .padding(4)
+                            }
+                            .padding(.horizontal)
+                            .background(.primary)
+                            .cornerRadius(10)
+                        }
+                        .padding()
+                        .background(.ultraThickMaterial)
+                        .cornerRadius(10)
+                        .padding()
+                    }
+                }
                 
                 if let description = product.description,
                     product.description != nil {
@@ -128,6 +177,14 @@ struct ProductDetailView: View {
                 .padding()
             }
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear() {
+            let currentOrder = Order(product: product)
+            
+            // add order if it has not been already added
+            if !modelData.orders.contains(where: {$0.id == product.id!}) {
+                modelData.orders.append(currentOrder)
+            }
         }
     }
 }

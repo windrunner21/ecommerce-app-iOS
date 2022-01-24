@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 final class ModelData: ObservableObject {
     @Published var products = [Product]()
     @Published var promoCodes = [PromoCode]()
+    @Published var orders = [Order]()
     
     // only featured products
     var featured: [Product] {

@@ -8,9 +8,9 @@
 import Foundation
 
 enum Size: String, CaseIterable {
-    case extraSmall = "xs"
-    case small = "s"
-    case medium = "m"
-    case large = "l"
-    case extraLarge = "xl"
+    case baby = "Baby"
+    case kid = "Kid"
+    case adult = "Adult"
+    case adultPlus = "Adult XL"
+    case custom = "Custom"
 }
