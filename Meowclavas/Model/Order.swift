@@ -10,7 +10,7 @@ import Foundation
 struct Order: Identifiable {
     // identifiable same as product id
     var id: String? {
-        product.id
+        product.id! + size.rawValue + puffyColor.rawValue + sizeInSmStr != "0" ? sizeInSmStr : ""
     }
     
     // properties
@@ -20,5 +20,7 @@ struct Order: Identifiable {
     
     // optional properties
     var sizeInSm: Int?
-    var promoCode: PromoCode?
+    var sizeInSmStr: String {
+        String(sizeInSm ?? 0)
+    }
 }

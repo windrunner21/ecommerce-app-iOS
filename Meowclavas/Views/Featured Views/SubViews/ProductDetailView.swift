@@ -88,7 +88,7 @@ struct ProductDetailView: View {
                 
                 SizePickerView(product: product)
                 
-                if var currentOrder = modelData.orders.first(where: {$0.id == product.id!}) {
+                if var currentOrder = modelData.orders.first(where: {$0.product.id! == product.id!}) {
                     if currentOrder.size.rawValue == "Custom" {
                         HStack {
                             Text("Head size (sm)")
@@ -101,7 +101,7 @@ struct ProductDetailView: View {
                                 }
                             
                             Button(action: {
-                                guard let currentOrderIndex = modelData.orders.firstIndex(where: {$0.id == product.id!}) else {return}
+                                guard let currentOrderIndex = modelData.orders.firstIndex(where: {$0.product.id! == product.id!}) else {return}
                                 currentOrder.sizeInSm = headSizeInSm
                                 
                                 modelData.orders[currentOrderIndex] = currentOrder

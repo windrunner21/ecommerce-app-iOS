@@ -16,7 +16,7 @@ struct ColorPickerView: View {
             ScrollViewReader { scrollView in
                 HStack(spacing: 25) {
                     ForEach(PuffyColorsEnum.allCases, id: \.self) { color in
-                        if color == modelData.orders.first(where: {$0.id == product.id!})?.puffyColor {
+                        if color == modelData.orders.first(where: {$0.product.id! == product.id!})?.puffyColor {
                             Image(color.rawValue)
                                 .resizable()
                                 .scaledToFill()
@@ -34,8 +34,8 @@ struct ColorPickerView: View {
                                 .clipShape(Circle())
                                 .shadow(radius: 3)
                                 .onTapGesture {
-                                    guard let currentOrderIndex = modelData.orders.firstIndex(where: {$0.id == product.id!}) else {return}
-                                    guard var currentOrder = modelData.orders.first(where: {$0.id == product.id!}) else { return }
+                                    guard let currentOrderIndex = modelData.orders.firstIndex(where: {$0.product.id! == product.id!}) else {return}
+                                    guard var currentOrder = modelData.orders.first(where: {$0.product.id! == product.id!}) else { return }
                                     currentOrder.puffyColor = color
                                     
                                     modelData.orders[currentOrderIndex] = currentOrder
@@ -46,7 +46,7 @@ struct ColorPickerView: View {
                 .padding(.vertical, 6)
                 .padding(.horizontal)
                 .onAppear() {
-                    switch modelData.orders.first(where: {$0.id == product.id!})?.puffyColor {
+                    switch modelData.orders.first(where: {$0.product.id! == product.id!})?.puffyColor {
                     case .P60: scrollView.scrollTo(PuffyColorsEnum.P60, anchor: .bottom)
                     case .P87: scrollView.scrollTo(PuffyColorsEnum.P87, anchor: .bottom)
                     case .P106: scrollView.scrollTo(PuffyColorsEnum.P106, anchor: .bottom)
