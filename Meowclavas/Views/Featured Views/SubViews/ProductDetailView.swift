@@ -76,7 +76,7 @@ struct ProductDetailView: View {
                 .padding(.horizontal)
                 .padding(.top)
                 
-                ColorPickerView()
+                ColorPickerView(product: product)
                 
                 // Size Selection Custom UI
                 HStack {

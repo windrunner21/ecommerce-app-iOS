@@ -16,9 +16,9 @@ struct Order: Identifiable {
     // properties
     var product: Product
     var size: Size = .adult
+    var puffyColor: PuffyColorsEnum = .P6
     
     // optional properties
     var sizeInSm: Int?
-    var color: Colors?
     var promoCode: PromoCode?
 }
