@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    var product: Product
+    
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var modelData: ModelData
+    
     @EnvironmentObject var baggies: Baggies
     @EnvironmentObject var favorites: Favorites
+    
+    @State private var colorSelected: PuffyColorsEnum?
+    @State private var sizeSelected: Size?
     @State private var headSizeInSm: Int = 0
     @FocusState private var isFocused: Bool
-    var product: Product
+    
+    @State private var showColorError: Bool = false
+    @State private var showSizeError: Bool = false
+    
+    @State private var orderToCheck: Order = Order()
     
     var body: some View {
         ScrollView {
@@ -38,6 +47,9 @@ struct ProductDetailView: View {
                     .font(.system(size: 30))
                     .foregroundColor(.white)
                     .padding([.leading, .top], 8)
+                }
+                .onAppear() {
+                    orderToCheck = Order(productID: product.id!, occurences: 1)
                 }
                 
                 // product name and price (sale included)
@@ -76,7 +88,15 @@ struct ProductDetailView: View {
                 .padding(.horizontal)
                 .padding(.top)
                 
-                ColorPickerView(product: product)
+                // Color Picker Related UI
+                Group {
+                    ColorPickerView(product: product, colorSelected: $colorSelected, currentOrderToSet: $orderToCheck)
+                    if showColorError {
+                        Text("Please select a valid color")
+                            .font(.footnote)
+                            .foregroundColor(.red)
+                    }
+                }
                 
                 // Size Selection Custom UI
                 HStack {
@@ -86,25 +106,26 @@ struct ProductDetailView: View {
                 }
                 .padding(.horizontal)
                 
-                SizePickerView(product: product)
-                
-                if var currentOrder = modelData.orders.first(where: {$0.product.id! == product.id!}) {
-                    if currentOrder.size.rawValue == "Custom" {
+                // Size Picker Related UI
+                Group {
+                    SizePickerView(product: product, sizeSelected: $sizeSelected, currentOrderToSet: $orderToCheck)
+                    
+                    if sizeSelected?.rawValue == "Custom" {
                         HStack {
                             Text("Head size (sm)")
                             TextField("Enter", value: $headSizeInSm, formatter: NumberFormatter())
                                 .textFieldStyle(.roundedBorder)
                                 .keyboardType(.numberPad)
                                 .focused($isFocused)
-                                .onAppear() {
-                                    headSizeInSm = currentOrder.sizeInSm ?? headSizeInSm
-                                }
                             
                             Button(action: {
-                                guard let currentOrderIndex = modelData.orders.firstIndex(where: {$0.product.id! == product.id!}) else {return}
-                                currentOrder.sizeInSm = headSizeInSm
+                                if headSizeInSm == 0 {
+                                    showSizeError = true
+                                } else {
+                                    orderToCheck.sizeInSm = headSizeInSm
+                                    showSizeError = false
+                                }
                                 
-                                modelData.orders[currentOrderIndex] = currentOrder
                                 isFocused = false
                             }) {
                                 Text("OK")
@@ -119,6 +140,12 @@ struct ProductDetailView: View {
                         .background(.ultraThickMaterial)
                         .cornerRadius(10)
                         .padding()
+                    }
+                    
+                    if showSizeError {
+                        Text("Please select a valid size")
+                            .font(.footnote)
+                            .foregroundColor(.red)
                     }
                 }
                 
@@ -141,15 +168,47 @@ struct ProductDetailView: View {
                 HStack {
                     // Add to basket button
                     Button(action: {
-                        if baggies.contains(this: product) {
-                            baggies.removeCompletely(this: product)
-                        } else {
-                            baggies.add(this: product)
+                        guard colorSelected != nil else {
+                            showColorError = true
+                            return
                         }
+                        
+                        showColorError = false
+
+                        guard let sizeSelected = sizeSelected else {
+                            showSizeError = true
+                            return
+                        }
+
+                        if sizeSelected.rawValue == "Custom" && headSizeInSm == 0 {
+                            showSizeError = true
+                            return
+                        }
+
+                        showSizeError = false
+                        
+                        
+                        for ord in baggies.load() {
+                            if ord.productID == orderToCheck.productID
+                                && ord.puffyColor == orderToCheck.puffyColor
+                                && ord.size == orderToCheck.size
+                                && ord.sizeInSm == orderToCheck.sizeInSm {
+                                orderToCheck.occurences = ord.occurences
+                            }
+                        }
+                        
+                        print(orderToCheck)
+                        
+                        if baggies.contains(this: orderToCheck) {
+                            baggies.removeCompletely(this: orderToCheck)
+                        } else {
+                            baggies.add(this: orderToCheck)
+                        }
+                  
                     }) {
                         HStack {
-                            Image(systemName: baggies.contains(this: product) ? "checkmark" : "plus")
-                            Text(baggies.contains(this: product) ? "Added to Bag": "Add to Bag")
+                            Image(systemName: baggies.contains(this: orderToCheck) ? "checkmark" : "plus")
+                            Text(baggies.contains(this: orderToCheck) ? "Added to Bag": "Add to Bag")
                                 .fontWeight(.semibold)
                             
                         }
@@ -159,6 +218,7 @@ struct ProductDetailView: View {
                     .padding()
                     .background(.black)
                     .cornerRadius(24)
+
                     
                     // Favorites button
                     Image(systemName: "heart.fill")
@@ -178,19 +238,5 @@ struct ProductDetailView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .onAppear() {
-            let currentOrder = Order(product: product)
-            
-            // add order if it has not been already added
-            if !modelData.orders.contains(where: {$0.id == product.id!}) {
-                modelData.orders.append(currentOrder)
-            }
-        }
-    }
-}
-
-struct ProductDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailView(product: ModelData().products[0])
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 class Baggies: ObservableObject {
     // products that user added to shopping cart
-    private var products: Dictionary<String, Int>
+    private var products: [Order]
     
     // key to write/read from UserDeaults
     private let saveKey: String = "Baggies"
@@ -22,7 +22,7 @@ class Baggies: ObservableObject {
                 let decoder = JSONDecoder()
 
                 // Decode product
-                let productsDecoded = try decoder.decode(Dictionary<String, Int>.self, from: data)
+                let productsDecoded = try decoder.decode([Order].self, from: data)
                 self.products = productsDecoded
                 return
             } catch {
@@ -30,42 +30,47 @@ class Baggies: ObservableObject {
             }
         }
         
-        self.products = [:]
+        self.products = []
     }
     
     // check if set contains products
-    func contains(this product: Product) -> Bool {
-        products[product.id!] != nil
+    func contains(this order: Order) -> Bool {
+        for ord in products {
+            if ord.productID == order.productID
+                && ord.puffyColor == order.puffyColor
+                && ord.size == order.size
+                && ord.sizeInSm == order.sizeInSm {
+                return true
+            }
+        }
+        return false
     }
     
     // adds the product to our set, updates all views, and saves the change
-    func add(this product: Product) {
+    func add(this order: Order) {
         objectWillChange.send()
         
-        if let productFound = products[product.id!] {
-            var quantityToBeUpdated = productFound
-            quantityToBeUpdated += 1
-            
-            products[product.id!] = quantityToBeUpdated
+        if let orderFoundIndex = products.firstIndex(of: order) {
+            let tempOrder = Order(productID: order.productID, size: order.size, puffyColor: order.puffyColor, sizeInSm: order.sizeInSm, occurences: (order.occurences! + 1))
+            products[orderFoundIndex] = tempOrder
         } else {
-            products[product.id!] = 1
+            products.append(order)
         }
         
         save()
     }
     
     // removes the product from our set, updates all views, and saves the change
-    func remove(this product: Product) {
+    func remove(this order: Order) {
         objectWillChange.send()
         
-        if let productFound = products[product.id!] {
-            var quantityToBeUpdated = productFound
-            
-            if quantityToBeUpdated <= 1 {
-                products[product.id!] = nil
+        if let orderFoundIndex = products.firstIndex(of: order) {
+            if order.occurences! <= 1 {
+                products.remove(at: orderFoundIndex)
             } else {
-                quantityToBeUpdated -= 1
-                products[product.id!] = quantityToBeUpdated
+                let tempOrder = Order(productID: order.productID, size: order.size, puffyColor: order.puffyColor, sizeInSm: order.sizeInSm, occurences: (order.occurences! - 1))
+                products[orderFoundIndex] = tempOrder
+
             }
         }
         
@@ -73,9 +78,13 @@ class Baggies: ObservableObject {
     }
     
     // remove element completely
-    func removeCompletely(this product: Product) {
+    func removeCompletely(this order: Order) {
         objectWillChange.send()
-        products[product.id!] = nil
+        
+        if let orderFoundIndex = products.firstIndex(of: order) {
+            products.remove(at: orderFoundIndex)
+        }
+        
         save()
     }
     
@@ -96,7 +105,7 @@ class Baggies: ObservableObject {
         }
     }
     
-    func load() -> Dictionary<String, Int> {
+    func load() -> [Order] {
         products
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PuffyColorsEnum: String, CaseIterable {
+enum PuffyColorsEnum: String, CaseIterable, Codable {
     case P6 = "P6"
     case P27 = "P27"
     case P28 = "P28"

@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct SizePickerView: View {
-    @EnvironmentObject var modelData: ModelData
     var product: Product
+    @Binding var sizeSelected: Size?
+    @Binding var currentOrderToSet: Order
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { scrollView in
                 HStack(spacing: 25) {
                     ForEach(Size.allCases, id: \.self) { size in
-                        if size == modelData.orders.first(where: {$0.product.id! == product.id!})?.size {
+                        if size == sizeSelected {
                             Text(size.rawValue)
                                 .bold()
                                 .foregroundColor(.gray)
@@ -41,26 +42,14 @@ struct SizePickerView: View {
                                 .background(Color(UIColor.systemGray5))
                                 .clipShape(Capsule())
                                 .onTapGesture {
-                                    guard let currentOrderIndex = modelData.orders.firstIndex(where: {$0.product.id! == product.id!}) else {return}
-                                    guard var currentOrder = modelData.orders.first(where: {$0.product.id! == product.id!}) else { return }
-                                    currentOrder.size = size
-                                    
-                                    modelData.orders[currentOrderIndex] = currentOrder
+                                    sizeSelected = size
+                                    currentOrderToSet.size = sizeSelected
                                 }
                         }
                     }
                 }
                 .padding(.vertical, 6)
                 .padding(.horizontal)
-                .onAppear() {
-                    if modelData.orders.first(where: {$0.product.id! == product.id!})?.size == .custom {
-                        scrollView.scrollTo(Size.custom)
-                    }
-                    
-                    if modelData.orders.first(where: {$0.product.id! == product.id!})?.size == .adultPlus {
-                        scrollView.scrollTo(Size.adultPlus)
-                    }
-                }
             }
         }
     }

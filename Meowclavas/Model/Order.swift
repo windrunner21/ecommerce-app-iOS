@@ -7,20 +7,36 @@
 
 import Foundation
 
-struct Order: Identifiable {
-    // identifiable same as product id
+struct Order: Identifiable, Codable, Hashable {
+    // identifiable create custom articul
     var id: String? {
-        product.id! + size.rawValue + puffyColor.rawValue + sizeInSmStr != "0" ? sizeInSmStr : ""
+        var articul = String()
+        
+        if let ID = productID {
+            articul = ID
+        }
+        
+        if let COLOR = puffyColor?.rawValue {
+            articul += COLOR
+        }
+        
+        if let SIZE = size?.rawValue {
+            articul += SIZE
+        }
+        
+        if let SIZESM = sizeInSm {
+            if SIZESM != 0 {
+                articul += String(SIZESM)
+            }
+        }
+        
+        return articul
     }
     
     // properties
-    var product: Product
-    var size: Size = .adult
-    var puffyColor: PuffyColorsEnum = .P6
-    
-    // optional properties
+    var productID: String?
+    var size: Size?
+    var puffyColor: PuffyColorsEnum?
     var sizeInSm: Int?
-    var sizeInSmStr: String {
-        String(sizeInSm ?? 0)
-    }
+    var occurences: Int?
 }

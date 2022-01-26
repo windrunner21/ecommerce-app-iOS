@@ -54,7 +54,7 @@ struct FeaturedView: View {
                     FavoritesView(favoriteProducts: modelData.products.filter { favorites.load().contains($0.id!) })
                 }
                 .sheet(isPresented: $showingBasket) {
-                    BasketView(bagProducts: modelData.products.filter { baggies.load().keys.contains($0.id!) })
+                    BasketView()
                 }
             } else {
                 ProgressView()
@@ -81,7 +81,7 @@ struct FeaturedView: View {
                         FavoritesView(favoriteProducts: modelData.products.filter { favorites.load().contains($0.id!) })
                     }
                     .sheet(isPresented: $showingBasket) {
-                        BasketView(bagProducts: modelData.products.filter { baggies.load().keys.contains($0.id!) })
+                        BasketView()
                     }
             }
         }

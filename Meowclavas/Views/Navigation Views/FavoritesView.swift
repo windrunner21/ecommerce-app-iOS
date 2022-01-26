@@ -68,13 +68,9 @@ struct FavoritesView: View {
                             Spacer()
                             
                             Button(action: {
-                                if baggies.contains(this: product) {
-                                    baggies.removeCompletely(this: product)
-                                } else {
-                                    baggies.add(this: product)
-                                }
+
                             }) {
-                                Image(systemName: baggies.contains(this: product) ? "bag.badge.minus" : "bag.badge.plus")
+                                Image(systemName: false ? "bag.badge.minus" : "bag.badge.plus")
                                     .foregroundColor(.primary)
                             }
                         }

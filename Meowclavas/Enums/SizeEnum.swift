@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Size: String, CaseIterable {
+enum Size: String, CaseIterable, Codable {
     case baby = "Baby"
     case kid = "Kid"
     case adult = "Adult"

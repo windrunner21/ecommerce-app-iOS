@@ -10,15 +10,15 @@ import SwiftUI
 struct BasketView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var baggies: Baggies
-    @State var bagProducts: [Product]
+    
     @State private var promoCode: String = String()
     @State private var showingHelp: Bool = false
     @State private var codePriceOff: Int = 0
     var totalPrice: Double {
         var tempPrice = 0.0
         
-        for product in bagProducts {
-            tempPrice += (product.price * Double(baggies.load()[product.id!]!))
+        for product in baggies.load() {
+            tempPrice += (modelData.products.first(where: {$0.id! == product.productID})!.price * Double(product.occurences!))
         }
         
         return tempPrice
@@ -42,29 +42,29 @@ struct BasketView: View {
             } else {
                 VStack {
                     List {
-                        ForEach(bagProducts, id: \.self) { product in
+                        ForEach(baggies.load(), id: \.self) { product in
                             HStack {
-                                product.image
+                                modelData.products.first(where: {$0.id! == product.productID})!.image
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 75, height: 75)
                                     .clipped()
                                     .cornerRadius(10)
-                                
+
                                 VStack(alignment: .leading) {
-                                    Text(product.name)
+                                    Text(modelData.products.first(where: {$0.id! == product.productID})!.name)
                                         .font(.title3)
                                         .bold()
-                                    
-                                    Text("₼ " + String(format: "%.2f", product.price))
+
+                                    Text("₼ " + String(format: "%.2f", modelData.products.first(where: {$0.id! == product.productID})!.price))
                                         
                                     
                                     Spacer()
                                     
                                     HStack {
-                                        Text("Size: M")
+                                        Text("Size: \(product.size!.rawValue)")
                                         Divider()
-                                        Text("Color: gray")
+                                        Text("Color: \(product.puffyColor!.rawValue)")
                                     }
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
@@ -73,7 +73,7 @@ struct BasketView: View {
                                 
                                 Spacer()
                                 
-                                Text(String(baggies.load()[product.id!]!))
+                                Text(String(product.occurences!))
                                 .padding()
                                 .background(Color(UIColor.systemGray4))
                                 .cornerRadius(24)
@@ -87,13 +87,13 @@ struct BasketView: View {
                             .swipeActions(edge: .trailing) {
                                 Button("Delete") {
                                     baggies.remove(this: product)
-                                    
-                                    // remove only if dictionary is completely empty
-                                    if !baggies.load().keys.contains(product.id!) {
-                                        if let index = bagProducts.firstIndex(of: product) {
-                                            bagProducts.remove(at: index)
-                                        }
-                                    }
+
+//                                    // remove only if dictionary is completely empty
+//                                    if !baggies.load().keys.contains(product.id!) {
+//                                        if let index = bagProducts.firstIndex(of: product) {
+//                                            bagProducts.remove(at: index)
+//                                        }
+//                                    }
                                 }
                                 .tint(.red)
                             }
@@ -222,14 +222,5 @@ struct BasketView: View {
                 codePriceOff = promocode.off
             }
         }
-    }
-}
-
-struct BasketView_Previews: PreviewProvider {
-    static var previews: some View {
-        BasketView(
-            bagProducts: ModelData().products
-        )
-            .environmentObject(UserManager())
     }
 }
