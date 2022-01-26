@@ -28,27 +28,15 @@ struct ProductDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                ZStack(alignment: .topLeading) {
-                    // product image ignoring safe area and clipped to fill
-                    product.image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            width: UIScreen.main.bounds.size.width,
-                            height: UIScreen.main.bounds.size.height / 2.5
-                        )
-                        .clipped()
-                    
-                    Button(){
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .font(.system(size: 30))
-                    .foregroundColor(.white)
-                    .padding([.leading, .top], 8)
-                }
-                .onAppear() {
+                product.image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(
+                        width: UIScreen.main.bounds.size.width,
+                        height: UIScreen.main.bounds.size.height / 2.5
+                    )
+                    .clipped()
+                    .onAppear() {
                     orderToCheck = Order(productID: product.id!, occurences: 1)
                 }
                 

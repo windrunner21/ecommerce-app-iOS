@@ -61,10 +61,17 @@ struct BasketView: View {
                                     
                                     Spacer()
                                     
-                                    HStack {
+                                    HStack(alignment: .center) {
                                         Text("Size: \(product.size!.rawValue)")
                                         Divider()
-                                        Text("Color: \(product.puffyColor!.rawValue)")
+                                        HStack {
+                                            Text("Color:")
+                                            Image(product.puffyColor!.rawValue)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 15, height: 15)
+                                            .clipShape(Circle())
+                                        }
                                     }
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
