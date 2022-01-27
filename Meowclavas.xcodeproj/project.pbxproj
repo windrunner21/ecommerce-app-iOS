@@ -10,6 +10,9 @@
 		0DB965E8D884EA2E6CAD3221 /* Pods_Meowclavas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF5F450C573B65BEED915EC /* Pods_Meowclavas.framework */; };
 		AD4818C55979975040E3EC12 /* Pods_MeowclavasTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39649FAF898CD48C7A18DF3D /* Pods_MeowclavasTests.framework */; };
 		AEB50F00AA91BBD8310D743C /* Pods_Meowclavas_MeowclavasUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6FF92F8E48F2E9A149A262 /* Pods_Meowclavas_MeowclavasUITests.framework */; };
+		CA11956227A1E59B002AE617 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956127A1E59B002AE617 /* FilterView.swift */; };
+		CA11956427A2FF93002AE617 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956327A2FF93002AE617 /* FilterOptions.swift */; };
+		CA11956627A30F68002AE617 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956527A30F68002AE617 /* Filter.swift */; };
 		CA1E49EB2766A76500DDC740 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EA2766A76500DDC740 /* CategoryView.swift */; };
 		CA1E49ED2766A97100DDC740 /* CategoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EC2766A97100DDC740 /* CategoryItemView.swift */; };
 		CA1E49EF2766AF5B00DDC740 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EE2766AF5B00DDC740 /* ProductDetailView.swift */; };
@@ -100,6 +103,9 @@
 		718E4827EBA2824F7D9D2D1E /* Pods-Meowclavas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meowclavas.release.xcconfig"; path = "Target Support Files/Pods-Meowclavas/Pods-Meowclavas.release.xcconfig"; sourceTree = "<group>"; };
 		8B59FE9C31D6241BF7052BCB /* Pods-MeowclavasTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeowclavasTests.release.xcconfig"; path = "Target Support Files/Pods-MeowclavasTests/Pods-MeowclavasTests.release.xcconfig"; sourceTree = "<group>"; };
 		B9D7797F322D03B6148717FD /* Pods-MeowclavasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeowclavasTests.debug.xcconfig"; path = "Target Support Files/Pods-MeowclavasTests/Pods-MeowclavasTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA11956127A1E59B002AE617 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		CA11956327A2FF93002AE617 /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
+		CA11956527A30F68002AE617 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		CA1E49EA2766A76500DDC740 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CA1E49EC2766A97100DDC740 /* CategoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemView.swift; sourceTree = "<group>"; };
 		CA1E49EE2766AF5B00DDC740 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -407,6 +413,8 @@
 				CAA29B96279BE8FA00338CE7 /* Baggies.swift */,
 				CA59937C279CA9E1002632A6 /* PromoCode.swift */,
 				CAA3760E279EC86000113F6F /* Order.swift */,
+				CA11956327A2FF93002AE617 /* FilterOptions.swift */,
+				CA11956527A30F68002AE617 /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,6 +461,7 @@
 			children = (
 				CAC9EC0E27690BB100747E8A /* ExploreItemView.swift */,
 				CAC9EC102769162F00747E8A /* ProductsView.swift */,
+				CA11956127A1E59B002AE617 /* FilterView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -734,6 +743,7 @@
 				CA6EAFAD2778F85F00FF9CEB /* DotSpacerView.swift in Sources */,
 				CA1E49F92766B7B800DDC740 /* BasketView.swift in Sources */,
 				CAC82A8627733374003ED63C /* PaymentView.swift in Sources */,
+				CA11956227A1E59B002AE617 /* FilterView.swift in Sources */,
 				CA1E49F12766B02900DDC740 /* TabEnum.swift in Sources */,
 				CABF025E276BE2A500F27D78 /* SizePickerView.swift in Sources */,
 				CA1E4A002766BE5100DDC740 /* FeaturedCardView.swift in Sources */,
@@ -750,6 +760,7 @@
 				CA8ED7DC27962E2F00B984FF /* DataModel.xcdatamodeld in Sources */,
 				CAC9EC112769162F00747E8A /* ProductsView.swift in Sources */,
 				CAA3760F279EC86000113F6F /* Order.swift in Sources */,
+				CA11956627A30F68002AE617 /* Filter.swift in Sources */,
 				CAB0DB112763CC4D007F67FA /* ContentView.swift in Sources */,
 				CA1E49F72766B7A300DDC740 /* FavoritesView.swift in Sources */,
 				CAB12B9827668342006AC793 /* CategoryEnum.swift in Sources */,
@@ -773,6 +784,7 @@
 				CAC9EC0F27690BB100747E8A /* ExploreItemView.swift in Sources */,
 				CAC9EC1A2769453100747E8A /* AddressView.swift in Sources */,
 				CAA29B97279BE8FA00338CE7 /* Baggies.swift in Sources */,
+				CA11956427A2FF93002AE617 /* FilterOptions.swift in Sources */,
 				CA8424FB2763E9EF00A3546F /* LoginView.swift in Sources */,
 				CA1E4A042767757B00DDC740 /* PageControlView.swift in Sources */,
 				CA1E49ED2766A97100DDC740 /* CategoryItemView.swift in Sources */,

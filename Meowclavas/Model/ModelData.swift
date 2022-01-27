@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 final class ModelData: ObservableObject {
     @Published var products = [Product]()
     @Published var promoCodes = [PromoCode]()
+    @Published var filter = Filter(minPrice: 0, maxPrice: 100, options: [])
     
     // only featured products
     var featured: [Product] {
@@ -25,6 +26,14 @@ final class ModelData: ObservableObject {
             grouping: products,
             by: { $0.category.rawValue }
         )
+    }
+    
+    // apply filter to products
+    func filteredProducts(_ products: [Product]) -> [Product] {
+        if filter.options.isEmpty {
+            return products.filter { $0.price > filter.minPrice && $0.price < filter.maxPrice }
+        }
+        return products.filter { $0.price > filter.minPrice && $0.price < filter.maxPrice && filter.options.contains($0.name.components(separatedBy: " ")[0])}
     }
     
     // get main products from firestore

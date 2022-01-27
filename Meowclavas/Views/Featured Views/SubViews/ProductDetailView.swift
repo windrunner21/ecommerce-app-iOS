@@ -198,11 +198,10 @@ struct ProductDetailView: View {
                             Image(systemName: baggies.contains(this: orderToCheck) ? "checkmark" : "plus")
                             Text(baggies.contains(this: orderToCheck) ? "Added to Bag": "Add to Bag")
                                 .fontWeight(.semibold)
-                            
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
                         }
                     }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
                     .padding()
                     .background(.black)
                     .cornerRadius(24)

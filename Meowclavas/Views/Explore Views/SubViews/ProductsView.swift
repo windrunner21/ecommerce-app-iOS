@@ -13,8 +13,9 @@ struct ProductsView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingFavorites: Bool = false
     @State private var showingBasket: Bool = false
+    @State private var showingFilter: Bool = false
     @State private var productDetailed: Product? = nil
-    
+
     var categoryName: String
     var items: [Product]
     var headlineText: String {
@@ -38,29 +39,38 @@ struct ProductsView: View {
                     .font(.headline)
                     .foregroundColor(.gray)
                 Spacer()
-                Button(action: {
-                    print("filter clicked")
-                }) {
+                
+                Button {
+                    showingFilter.toggle()
+                } label: {
                     Image(systemName: "slider.horizontal.3")
-                        .foregroundColor(.primary)
+                        .foregroundColor( modelData.filter != Filter(minPrice: 0, maxPrice: 100, options: []) ? .blue : .primary)
                         .opacity(0.7)
                 }
             }
             
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 0) {
-                    ForEach(items, id: \.self) { product in
-                        CategoryItemView(product: product, leadingPadding: 0)
-                            .padding(.vertical)
-                            .onTapGesture {
-                                productDetailed = product
-                            }
-                    }
-                    .sheet(item: $productDetailed) { product in
-                        ProductDetailView(product: product)
+            
+            if items.isEmpty {
+                Spacer()
+                
+                Text("Uhh? Try changing filter parameters.")
+                
+                Spacer()
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 0) {
+                        ForEach(items, id: \.self) { product in
+                            CategoryItemView(product: product, leadingPadding: 0)
+                                .padding(.vertical)
+                                .onTapGesture {
+                                    productDetailed = product
+                                }
+                        }
+                        .sheet(item: $productDetailed) { product in
+                            ProductDetailView(product: product)
+                        }
                     }
                 }
-                
             }
         }
         .padding(.horizontal)
@@ -87,6 +97,9 @@ struct ProductsView: View {
         }
         .sheet(isPresented: $showingBasket) {
             BasketView()
+        }
+        .sheet(isPresented: $showingFilter) {
+            FilterView()
         }
     }
 }

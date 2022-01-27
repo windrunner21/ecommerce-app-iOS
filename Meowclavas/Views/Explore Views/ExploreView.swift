@@ -20,7 +20,7 @@ struct ExploreView: View {
             List {
                 ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
                     NavigationLink(
-                        destination: ProductsView(categoryName: key, items: modelData.categories[key]!)
+                        destination: ProductsView(categoryName: key, items: modelData.filteredProducts(modelData.categories[key]!))
                     ) {
                         ExploreItemView(categoryName: key)
                     }
