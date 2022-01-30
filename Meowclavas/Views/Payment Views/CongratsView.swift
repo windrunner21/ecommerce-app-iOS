@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CongratsView: View {
+    @EnvironmentObject var baggies: Baggies
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -31,6 +32,7 @@ struct CongratsView: View {
             
             // Continue button
             Button(action: {
+                baggies.removeAll()
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Continue Shopping")

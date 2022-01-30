@@ -15,6 +15,7 @@ struct MeowclavasApp: App {
     @StateObject private var dataController = DataController()
     @ObservedObject var baggies = Baggies()
     @ObservedObject var favorites = Favorites()
+    @ObservedObject var shipment = Shipping()
     
     init() {
         FirebaseApp.configure()
@@ -27,6 +28,7 @@ struct MeowclavasApp: App {
                 .environmentObject(userManager)
                 .environmentObject(baggies)
                 .environmentObject(favorites)
+                .environmentObject(shipment)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }

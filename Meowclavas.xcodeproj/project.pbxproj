@@ -13,6 +13,9 @@
 		CA11956227A1E59B002AE617 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956127A1E59B002AE617 /* FilterView.swift */; };
 		CA11956427A2FF93002AE617 /* FilterOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956327A2FF93002AE617 /* FilterOptions.swift */; };
 		CA11956627A30F68002AE617 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956527A30F68002AE617 /* Filter.swift */; };
+		CA11956827A3FA08002AE617 /* UserOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956727A3FA08002AE617 /* UserOrder.swift */; };
+		CA11956A27A6A319002AE617 /* ShippingInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956927A6A319002AE617 /* ShippingInformation.swift */; };
+		CA11956C27A6A3C5002AE617 /* Shipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11956B27A6A3C5002AE617 /* Shipping.swift */; };
 		CA1E49EB2766A76500DDC740 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EA2766A76500DDC740 /* CategoryView.swift */; };
 		CA1E49ED2766A97100DDC740 /* CategoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EC2766A97100DDC740 /* CategoryItemView.swift */; };
 		CA1E49EF2766AF5B00DDC740 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E49EE2766AF5B00DDC740 /* ProductDetailView.swift */; };
@@ -106,6 +109,9 @@
 		CA11956127A1E59B002AE617 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		CA11956327A2FF93002AE617 /* FilterOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptions.swift; sourceTree = "<group>"; };
 		CA11956527A30F68002AE617 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		CA11956727A3FA08002AE617 /* UserOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrder.swift; sourceTree = "<group>"; };
+		CA11956927A6A319002AE617 /* ShippingInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingInformation.swift; sourceTree = "<group>"; };
+		CA11956B27A6A3C5002AE617 /* Shipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipping.swift; sourceTree = "<group>"; };
 		CA1E49EA2766A76500DDC740 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CA1E49EC2766A97100DDC740 /* CategoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemView.swift; sourceTree = "<group>"; };
 		CA1E49EE2766AF5B00DDC740 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -415,6 +421,9 @@
 				CAA3760E279EC86000113F6F /* Order.swift */,
 				CA11956327A2FF93002AE617 /* FilterOptions.swift */,
 				CA11956527A30F68002AE617 /* Filter.swift */,
+				CA11956727A3FA08002AE617 /* UserOrder.swift */,
+				CA11956927A6A319002AE617 /* ShippingInformation.swift */,
+				CA11956B27A6A3C5002AE617 /* Shipping.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -755,6 +764,7 @@
 				CAB12B9427667B73006AC793 /* Product.swift in Sources */,
 				CA1E49EB2766A76500DDC740 /* CategoryView.swift in Sources */,
 				CACD7DBA27791A1C00E98AA5 /* ShippingMethodView.swift in Sources */,
+				CA11956C27A6A3C5002AE617 /* Shipping.swift in Sources */,
 				CADF42B82766745D008B44F5 /* ForgotPasswordView.swift in Sources */,
 				CA1E49F32766B0F000DDC740 /* ExploreView.swift in Sources */,
 				CA8ED7DC27962E2F00B984FF /* DataModel.xcdatamodeld in Sources */,
@@ -785,6 +795,8 @@
 				CAC9EC1A2769453100747E8A /* AddressView.swift in Sources */,
 				CAA29B97279BE8FA00338CE7 /* Baggies.swift in Sources */,
 				CA11956427A2FF93002AE617 /* FilterOptions.swift in Sources */,
+				CA11956A27A6A319002AE617 /* ShippingInformation.swift in Sources */,
+				CA11956827A3FA08002AE617 /* UserOrder.swift in Sources */,
 				CA8424FB2763E9EF00A3546F /* LoginView.swift in Sources */,
 				CA1E4A042767757B00DDC740 /* PageControlView.swift in Sources */,
 				CA1E49ED2766A97100DDC740 /* CategoryItemView.swift in Sources */,

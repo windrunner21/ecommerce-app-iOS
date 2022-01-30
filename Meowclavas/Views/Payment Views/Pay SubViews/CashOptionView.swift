@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct CashOptionView: View {
+    @EnvironmentObject var modelData: ModelData
+    
     @Binding var checked: Bool
-    @State private var amount: String = String()
+    @State private var amount: Double = 0.0
     @FocusState private var isFocused: Bool
     
     var returnAmount: Double {
-        (Double(amount) ?? 0) - 20.0
+        if amount < modelData.userOrder.finalPrice.rounded() {
+            return 0
+        } else {
+            return amount - modelData.userOrder.finalPrice.rounded()
+        }
     }
     
     
@@ -58,12 +64,20 @@ struct CashOptionView: View {
                     HStack {
                         Text("I have ₼ ")
         
-                        TextField("amount", text: $amount)
+                        TextField("amount", value: $amount, formatter: NumberFormatter())
                             .textFieldStyle(.roundedBorder)
                             .keyboardType(.numberPad)
                             .focused($isFocused)
+                            .onAppear() {
+                                amount = modelData.userOrder.finalPrice
+                            }
                         
                         Button(action: {
+                            if amount < modelData.userOrder.finalPrice {
+                                amount = modelData.userOrder.finalPrice
+                            }
+                            
+                            modelData.userOrder.changeRequired = returnAmount
                             isFocused = false
                         }) {
                             Text("OK")

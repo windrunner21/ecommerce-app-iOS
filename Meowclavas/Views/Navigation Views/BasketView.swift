@@ -94,13 +94,6 @@ struct BasketView: View {
                             .swipeActions(edge: .trailing) {
                                 Button("Delete") {
                                     baggies.remove(this: product)
-
-//                                    // remove only if dictionary is completely empty
-//                                    if !baggies.load().keys.contains(product.id!) {
-//                                        if let index = bagProducts.firstIndex(of: product) {
-//                                            bagProducts.remove(at: index)
-//                                        }
-//                                    }
                                 }
                                 .tint(.red)
                             }
@@ -192,7 +185,17 @@ struct BasketView: View {
                             .background(.black)
                             .cornerRadius(24)
                     }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        modelData.userOrder.orderedItems = baggies.load()
+                        if codePriceOff != 0 {
+                            modelData.userOrder.promoCode = promoCode
+                            modelData.userOrder.finalPrice = totalPriceWithSale
+                        } else {
+                            modelData.userOrder.finalPrice = totalPrice
+                        }
+                    })
                     .padding()
+                    
                 }
                 .navigationTitle("My Bag")
                 .toolbar {

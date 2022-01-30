@@ -88,6 +88,12 @@ class Baggies: ObservableObject {
         save()
     }
     
+    func removeAll() {
+        objectWillChange.send()
+        products = []
+        save()
+    }
+    
     // write baggies data
     func save() {
         do {

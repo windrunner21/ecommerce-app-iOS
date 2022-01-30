@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PaymentView: View {
+struct PaymentView: View {    
     @State private var step2Active = false
     @State private var step3Active = false
     
@@ -55,7 +55,7 @@ struct PaymentView: View {
                     Spacer()
                 }
             }
-            .padding()
+            .padding([.top, .horizontal])
             
             if !step2Active && !step3Active {
                 ShippingView(step2Active: $step2Active)
@@ -74,6 +74,7 @@ struct PaymentView: View {
 
             Spacer()
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

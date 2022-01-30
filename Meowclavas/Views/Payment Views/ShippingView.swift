@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ShippingView: View {
+    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var shipment: Shipping
+    
     @Binding var step2Active: Bool
     @State private var fullName: String = String()
     @State private var showFullNameError: Bool = false
@@ -141,7 +144,7 @@ struct ShippingView: View {
                 
                 // Continue button
                 Button(action: {
-                    step2Active.toggle()
+                    handleShippingInformation()
                 }) {
                     Text("Continue to Payment")
                         .foregroundColor(Color(UIColor.systemBackground))
@@ -153,7 +156,76 @@ struct ShippingView: View {
                 .cornerRadius(24)
           
             }
-            .padding()
+            .padding(.horizontal)
+        }
+        .onAppear() {
+            let loadedInfo = shipment.load()
+
+            fullName = loadedInfo.fullName
+            address = loadedInfo.address
+            zipCode = loadedInfo.zipCode
+            city = loadedInfo.city
+            subwayStation = loadedInfo.subwayStation
+            
+            if loadedInfo.deliveryMethod == "Subway" {
+                toSubwayDelivery = true
+                toAddressDelivery = false
+            } else {
+                toSubwayDelivery = false
+                toAddressDelivery = true
+            }
+        }
+    }
+    
+    func handleShippingInformation() {
+        if fullName.isEmpty {
+            showFullNameError = true
+        } else {
+            showFullNameError = false
+        }
+        
+        if address.isEmpty {
+            showAddressError = true
+        } else {
+            showAddressError = false
+        }
+        
+        if city.isEmpty {
+            showCityError = true
+        } else {
+            showCityError = false
+        }
+        
+        if zipCode.isEmpty {
+            showZipCodeError = true
+        } else {
+            showZipCodeError = false
+        }
+        
+        if subwayStation.isEmpty {
+            showSubwayStationError = true
+        } else {
+            showSubwayStationError = false
+        }
+        
+        if !fullName.isEmpty && !address.isEmpty && !city.isEmpty && !zipCode.isEmpty && !subwayStation.isEmpty {
+            
+            let info = ShippingInformation(fullName: fullName, address: address, city: city, zipCode: zipCode, subwayStation: subwayStation, deliveryMethod: toSubwayDelivery ? "Subway" : "Address")
+            
+            shipment.write(info)
+            
+            modelData.userOrder.fullName = info.fullName
+            modelData.userOrder.address = info.address
+            modelData.userOrder.city = info.city
+            modelData.userOrder.zipCode = info.zipCode
+            modelData.userOrder.subwayStation = info.subwayStation
+            modelData.userOrder.deliveryOption = info.deliveryMethod
+            
+            if toAddressDelivery {
+                modelData.userOrder.finalPrice += 10
+            }
+            
+            step2Active.toggle()
         }
     }
 }

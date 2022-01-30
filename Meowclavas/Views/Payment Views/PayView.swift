@@ -6,25 +6,52 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct PayView: View {
+    @EnvironmentObject var modelData: ModelData
+    
     @Binding var step3Active: Bool
     @State private var exactCashAmount: Bool = true
     
     var body: some View {
         VStack {
-            Text("Currently we support only cash payment. Don't worry, online payment is coming soon!")
-                .font(.caption)
+                        
+            HStack {
+                Text("Total price for \(modelData.userOrder.orderedItems.count) ordered items is")
+                    .font(.system(size: 20))
+                    .fontWeight(.semibold)
+                
+                Spacer()
+            }
             
-            Spacer()
+            HStack {
+                Text("₼ " + String(format: "%.2f" ,modelData.userOrder.finalPrice))
+                    .font(.system(size: 20))
+                    .fontWeight(.semibold)
+                
+                Spacer()
+            }
+            .padding(.bottom)
             
             CashOptionView(checked: $exactCashAmount)
             
              Spacer()
             
+            Text("❗Currently we support only cash payment. Don't worry, online payment is coming soon!")
+                .font(.caption)
+                .padding(.bottom)
+            
             // Continue button
             Button(action: {
-                step3Active.toggle()
+                do {
+                    try  Firestore.firestore().collection("orders").document(Auth.auth().currentUser!.uid).setData(from: modelData.userOrder)
+                    
+                    step3Active.toggle()
+                } catch let error {
+                    print("Error writing city to Firestore: \(error)")
+                }
             }) {
                 Text("Order")
                     .foregroundColor(Color(UIColor.systemBackground))
