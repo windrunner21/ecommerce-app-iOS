@@ -37,14 +37,14 @@ struct ExploreView: View {
                         showingFavorites.toggle()
                     } label: {
                         Label("Favorites", systemImage: "heart")
-                            .foregroundColor(.primary)
+                            .foregroundColor(favorites.load().isEmpty ? .primary : .blue)
                     }
                     
                     Button {
                         showingBasket.toggle()
                     } label: {
                         Label("Shoping Bag", systemImage: "bag.fill")
-                            .foregroundColor(.primary)
+                            .foregroundColor(baggies.load().isEmpty ? .primary : .blue)
                     }
                 }
             }
