@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserOrder: Codable {
+struct UserOrder: Codable, Hashable {
     var orderedItems: [Order]
     
     // price variables
