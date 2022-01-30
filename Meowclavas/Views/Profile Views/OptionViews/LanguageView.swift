@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct LanguageView: View {
+    @EnvironmentObject var langManager: LanguageManager
+    
     var body: some View {
-        Text("Navigate to your iPhone's settings to change the language.")
+//        VStack {
+//            Text("The secret of getting ahead is getting started.", bundle: langManager.bundle)
+//            Button("Change") {
+//                langManager.lang = "ru"
+//            }
+//        }
+        Text("Navigate to iPhone settings to change the language. ❤️")
+        .padding()
     }
 }
 
