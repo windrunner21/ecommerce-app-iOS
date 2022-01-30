@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Meowclavas
+
+  Created by Imran on 31.01.22.
+  
+*/
+
+// launch screen
+"Best Handmade Balaclavas Shop" = "Best Handmade Balaclavas Shop";
+
+// sign in
+"Log into" = "Log into";
+"your account" = "your account";
+"Email" = "Email";
+"Password" = "Password";
+"Forgot?" = "Forgot?";
+"Log In" = "Log In";
+"Or sign up with social account" = "Or sign up with social account";
+"or" = "or";
+"Don't have an account?" = "Don't have an account?";
+"Sign Up" = "Sign Up";
+"Email cannot be empty." = "Email cannot be empty.";
+"Password cannot be empty." = "Password cannot be empty.";
+
+// sign up
+"Create" = "Create";
+"Your name" = "Your name";
+"by signing up you agree to terms of service and privacy policy" = "by signing up you agree to terms of service and privacy policy";
+"Already have account?" = "Already have account?";
+"Your name cannot be empty." = "Your name cannot be empty.";
+
+// forgot password
+"Forgot Password?" = "Forgot Password?";
+"If you need help resetting your password, we can help by sending you a link to reset it." = "If you need help resetting your password, we can help by sending you a link to reset it.";
+"Success! Go Back" = "Success! Go Back";
+"Send" = "Send";

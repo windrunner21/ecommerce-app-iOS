@@ -154,6 +154,7 @@ struct SignUpView: View {
                 // Alternative sign in prompt
                 Text("Or sign up with social account")
                     .fontWeight(.medium)
+                    .multilineTextAlignment(.center)
                 
                 // Sign in via Apple and Google buttons
                 HStack(spacing: 20.0) {

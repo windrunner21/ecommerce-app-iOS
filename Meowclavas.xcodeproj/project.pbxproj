@@ -30,6 +30,7 @@
 		CA1E4A042767757B00DDC740 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E4A032767757B00DDC740 /* PageControlView.swift */; };
 		CA4E181C27A7019B00388D9B /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E181B27A7019B00388D9B /* OrdersView.swift */; };
 		CA4E181E27A701A300388D9B /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E181D27A701A300388D9B /* LanguageView.swift */; };
+		CA4E182127A730E200388D9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA4E182327A730E200388D9B /* Localizable.strings */; };
 		CA59937D279CA9E1002632A6 /* PromoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA59937C279CA9E1002632A6 /* PromoCode.swift */; };
 		CA59937F279CBA19002632A6 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = CA59937E279CBA19002632A6 /* success.json */; };
 		CA6EAFAD2778F85F00FF9CEB /* DotSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EAFAC2778F85F00FF9CEB /* DotSpacerView.swift */; };
@@ -128,6 +129,9 @@
 		CA1E4A032767757B00DDC740 /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
 		CA4E181B27A7019B00388D9B /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 		CA4E181D27A701A300388D9B /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		CA4E182227A730E200388D9B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CA4E182427A730E900388D9B /* az */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = az; path = az.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CA4E182527A730FF00388D9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA59937C279CA9E1002632A6 /* PromoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCode.swift; sourceTree = "<group>"; };
 		CA59937E279CBA19002632A6 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		CA6EAFAC2778F85F00FF9CEB /* DotSpacerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSpacerView.swift; sourceTree = "<group>"; };
@@ -385,6 +389,7 @@
 				CAB0DB142763CC4E007F67FA /* Preview Content */,
 				CA6FA648277F47B100C12DB9 /* DataController.swift */,
 				CA8ED7DA27962E2F00B984FF /* DataModel.xcdatamodeld */,
+				CA4E182327A730E200388D9B /* Localizable.strings */,
 			);
 			path = Meowclavas;
 			sourceTree = "<group>";
@@ -602,6 +607,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				az,
 			);
 			mainGroup = CAB0DB022763CC4D007F67FA;
 			productRefGroup = CAB0DB0C2763CC4D007F67FA /* Products */;
@@ -625,6 +632,7 @@
 				CAB0DB162763CC4E007F67FA /* Preview Assets.xcassets in Resources */,
 				CAA096CF277E3EF5003C471D /* GoogleService-Info.plist in Resources */,
 				CA59937F279CBA19002632A6 /* success.json in Resources */,
+				CA4E182127A730E200388D9B /* Localizable.strings in Resources */,
 				CA80C4FF279C7B8500D9C904 /* wishlist-empty.json in Resources */,
 				CAB0DB132763CC4E007F67FA /* Assets.xcassets in Resources */,
 			);
@@ -849,6 +857,19 @@
 			targetProxy = CAB0DB262763CC4F007F67FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA4E182327A730E200388D9B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA4E182227A730E200388D9B /* ru */,
+				CA4E182427A730E900388D9B /* az */,
+				CA4E182527A730FF00388D9B /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CAB0DB2D2763CC4F007F67FA /* Debug */ = {

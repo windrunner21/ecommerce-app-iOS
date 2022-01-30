@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  Meowclavas
+
+  Created by Imran on 31.01.22.
+  
+*/
+
+// launch screen
+"Best Handmade Balaclavas Shop" = "Лучший Магазин Ручных Балаклав";
+
+// sign in
+"Log into" = "Войти в";
+"your account" = "свой аккаунт";
+"Email" = "Электронная почта";
+"Password" = "Пароль";
+"Forgot?" = "Забыли?";
+"Log In" = "Войти";
+"Or sign up with social account" = "Или зарегистрируйтесь при помощи социальных сетей";
+"or" = "или";
+"Don't have an account?" = "У вас нет аккаунта?";
+"Sign Up" = "Регистрация";
+"Email cannot be empty." = "Электронная почта не может быть пустой.";
+"Password cannot be empty." = "Пароль не может быть пустым.";
+
+// sign up
+"Create" = "Создать";
+"Your Name" = "Полное имя";
+"by signing up you agree to terms of service and privacy policy" = "регистрируясь вы соглашаетесь с условиями обслуживания и политикой конфиденциальности";
+"Already have account?" = "Уже есть аккаунт?";
+"Your name cannot be empty." = "Ваше имя не может быть пустым.";
+
+// forgot password
+"Forgot Password?" = "Забыли пароль?";
+"If you need help resetting your password, we can help by sending you a link to reset it." = "Если вам нужна помощь в сбросе пароля, мы можем помочь, отправив вам ссылку на вашу почту для сброса пароля.";
+"Success! Go Back" = "Успех! Вернуться";
+"Send" = "Отправить";
+
