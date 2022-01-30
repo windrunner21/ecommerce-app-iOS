@@ -12,8 +12,8 @@ struct ShippingView: View {
     @EnvironmentObject var shipment: Shipping
     
     @Binding var step2Active: Bool
-    @State private var fullName: String = String()
-    @State private var showFullNameError: Bool = false
+    @State private var phoneNumber: String = String()
+    @State private var showPhoneNumberError: Bool = false
     @State private var address: String = String()
     @State private var showAddressError: Bool = false
     @State private var zipCode: String = String()
@@ -37,15 +37,16 @@ struct ShippingView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
                 Group {
-                    TextField("Full Name", text: $fullName, onCommit: {
-                        if !fullName.isEmpty {
+                    TextField("Phone Number", text: $phoneNumber, onCommit: {
+                        if !phoneNumber.isEmpty {
                             addressIsFocused = true
                         }
                     })
                         .font(.system(size: 19, weight: .semibold))
+                        .keyboardType(.numberPad)
                     
-                    if showFullNameError {
-                        Text("Email cannot be empty.")
+                    if showPhoneNumberError {
+                        Text("Phone number cannot be empty.")
                             .font(.footnote)
                             .foregroundColor(.red)
                     }
@@ -161,7 +162,7 @@ struct ShippingView: View {
         .onAppear() {
             let loadedInfo = shipment.load()
 
-            fullName = loadedInfo.fullName
+            phoneNumber = loadedInfo.phoneNumber
             address = loadedInfo.address
             zipCode = loadedInfo.zipCode
             city = loadedInfo.city
@@ -178,10 +179,10 @@ struct ShippingView: View {
     }
     
     func handleShippingInformation() {
-        if fullName.isEmpty {
-            showFullNameError = true
+        if phoneNumber.isEmpty {
+            showPhoneNumberError = true
         } else {
-            showFullNameError = false
+            showPhoneNumberError = false
         }
         
         if address.isEmpty {
@@ -208,13 +209,13 @@ struct ShippingView: View {
             showSubwayStationError = false
         }
         
-        if !fullName.isEmpty && !address.isEmpty && !city.isEmpty && !zipCode.isEmpty && !subwayStation.isEmpty {
+        if !phoneNumber.isEmpty && !address.isEmpty && !city.isEmpty && !zipCode.isEmpty && !subwayStation.isEmpty {
             
-            let info = ShippingInformation(fullName: fullName, address: address, city: city, zipCode: zipCode, subwayStation: subwayStation, deliveryMethod: toSubwayDelivery ? "Subway" : "Address")
+            let info = ShippingInformation(phoneNumber: phoneNumber, address: address, city: city, zipCode: zipCode, subwayStation: subwayStation, deliveryMethod: toSubwayDelivery ? "Subway" : "Address")
             
             shipment.write(info)
             
-            modelData.userOrder.fullName = info.fullName
+            modelData.userOrder.phoneNumber = info.phoneNumber
             modelData.userOrder.address = info.address
             modelData.userOrder.city = info.city
             modelData.userOrder.zipCode = info.zipCode

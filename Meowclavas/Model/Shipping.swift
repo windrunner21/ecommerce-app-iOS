@@ -29,7 +29,7 @@ class Shipping: ObservableObject {
             }
         }
         
-        self.shippingInfo = ShippingInformation(fullName: "", address: "", city: "", zipCode: "", subwayStation: "", deliveryMethod: "Subway")
+        self.shippingInfo = ShippingInformation(phoneNumber: "", address: "", city: "", zipCode: "", subwayStation: "", deliveryMethod: "Subway")
     }
     
     // adds the product to our set, updates all views, and saves the change

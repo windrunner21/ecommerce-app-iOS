@@ -11,7 +11,10 @@ struct AddressView: View {
     @EnvironmentObject var shipment: Shipping
     
     var body: some View {
-        Text(shipment.load().fullName)
+        VStack {
+            Text("Imran Hajiyev")
+            Spacer()
+        }
     }
 }
 

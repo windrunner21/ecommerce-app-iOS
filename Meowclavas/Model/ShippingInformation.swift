@@ -8,7 +8,7 @@
 import Foundation
 
 struct ShippingInformation: Codable {
-    var fullName: String
+    var phoneNumber: String
     var address: String
     var city: String
     var zipCode: String

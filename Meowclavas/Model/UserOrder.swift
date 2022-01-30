@@ -15,7 +15,7 @@ struct UserOrder: Codable {
     var finalPrice: Double
     
     // shipping variables
-    var fullName: String
+    var phoneNumber: String
     var address: String
     var city: String
     var zipCode: String

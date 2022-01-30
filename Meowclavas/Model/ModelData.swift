@@ -14,7 +14,7 @@ final class ModelData: ObservableObject {
     @Published var products = [Product]()
     @Published var promoCodes = [PromoCode]()
     @Published var filter = Filter(minPrice: 0, maxPrice: 100, options: [])
-    @Published var userOrder = UserOrder(orderedItems: [], finalPrice: 0.0, fullName: "", address: "", city: "", zipCode: "", subwayStation: "", deliveryOption: "", paymentOption: "Cash", changeRequired: 0.0)
+    @Published var userOrder = UserOrder(orderedItems: [], finalPrice: 0.0, phoneNumber: "", address: "", city: "", zipCode: "", subwayStation: "", deliveryOption: "", paymentOption: "Cash", changeRequired: 0.0)
     
     // only featured products
     var featured: [Product] {
