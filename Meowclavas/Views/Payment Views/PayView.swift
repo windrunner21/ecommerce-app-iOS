@@ -46,7 +46,11 @@ struct PayView: View {
             // Continue button
             Button(action: {
                 do {
-                    try  Firestore.firestore().collection("orders").document(Auth.auth().currentUser!.uid).setData(from: modelData.userOrder)
+                    try Firestore.firestore().collection("usersOrders")
+                        .document(Auth.auth().currentUser!.uid)
+                        .collection("orders")
+                        .document()
+                        .setData(from: modelData.userOrder)
                     
                     step3Active.toggle()
                 } catch let error {

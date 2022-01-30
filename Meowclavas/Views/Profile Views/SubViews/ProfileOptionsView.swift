@@ -48,7 +48,7 @@ struct ProfileOptionsView: View {
             // additional settigns - language history
             VStack {
                 NavigationLink {
-                    AddressView()
+                    OrdersView()
                 } label: {
                     OptionRowView(
                         iconSystemName: "shippingbox.fill",
@@ -61,7 +61,7 @@ struct ProfileOptionsView: View {
                     .padding(.horizontal)
                 
                 NavigationLink {
-                    AddressView()
+                    LanguageView()
                 } label: {
                     OptionRowView(
                         iconSystemName: "globe",
