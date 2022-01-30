@@ -20,9 +20,9 @@ struct ProductsView: View {
     var items: [Product]
     var headlineText: String {
         if items.count == 1 {
-            return String(items.count) + " item found"
+            return String(items.count) + NSLocalizedString(" item found", comment: "")
         } else {
-            return String(items.count) + " items found"
+            return String(items.count) + NSLocalizedString(" items found", comment: "")
         }
     }
     
@@ -74,7 +74,7 @@ struct ProductsView: View {
             }
         }
         .padding(.horizontal)
-        .navigationTitle(categoryName)
+        .navigationTitle(NSLocalizedString(categoryName, comment: ""))
         .toolbar {
             HStack {
                 Button {

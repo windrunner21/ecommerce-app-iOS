@@ -19,7 +19,7 @@ struct OrdersView: View {
                 List {
                     ForEach(modelData.history, id: \.self) { order in
                         Section {
-                            Text("Ordered items: ")
+                            Text("Ordered items:")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                                 .padding(.top)
@@ -39,7 +39,7 @@ struct OrdersView: View {
                                             .bold()
                                         
                                         HStack(alignment: .center) {
-                                            Text("Size: \(item.size!.rawValue)")
+                                            Text("Size: \(NSLocalizedString(item.size!.rawValue, comment: ""))")
                                             Divider()
                                             HStack {
                                                 Text("Color:")

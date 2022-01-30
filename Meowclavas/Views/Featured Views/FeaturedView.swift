@@ -25,7 +25,7 @@ struct FeaturedView: View {
                     }
                     
                     ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
-                        CategoryView(categoryName: key, items: modelData.categories[key]!
+                        CategoryView(categoryName: NSLocalizedString(key, comment: ""), items: modelData.categories[key]!
                         )
                     }
                     .listRowInsets(EdgeInsets())

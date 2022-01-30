@@ -36,3 +36,115 @@
 "Success! Go Back" = "Успех! Вернуться";
 "Send" = "Отправить";
 
+// main tabs
+"Featured" = "Главное";
+"Explore" = "Поиск";
+"Profile" = "Профиль";
+
+// featured tab
+"Hot Sale" = "Горячая распродажа";
+"Designer Collection" = "Дизайнерская коллекция";
+"Top Trends" = "Топ Тренды";
+"Regular" = "Обычные";
+"Color" = "Цвет";
+"Size" = "Размер";
+"Color:" = "Цвет:";
+"Size: %@" = "Размер: %@";
+"Please select a valid color" = "Пожалуйста, выберите допустимый цвет";
+"Head size (sm)" =  "Размер головы (см)";
+"Please select a valid size" = "Пожалуйста, выберите допустимый размер";
+"Add to Bag" = "Добавить в Корзину";
+"Added to Bag" = "Добавлено";
+"Baby" = "Малыш";
+"Kid" = "Ребенок";
+"Adult" = "Взрослый";
+"Adult XL" = "Взрослый XL";
+"Custom" = "На заказ";
+
+// explore tab
+"Be unique. Be yourself." = "Будь уникальным. Будь собой.";
+"Up to 50% off." = "Скидка до 50%.";
+"Browse balaclavas collection." = "Просмотрите коллекцию балаклав.";
+"Uhh? Try changing filter parameters." = "Хмм? Попробуйте изменить параметры фильтра.";
+" item found" = " продукт найден";
+" items found" = " продуктов найдено";
+
+// filter
+"Filters" = "Фильтры";
+"Min price" = "Мин цена";
+"Max price" = "Макс цена";
+"Products" = "Продукты";
+"Select All" = "Выбрать все";
+"Balaclava" = "Балаклава";
+"Hat" = "Шапка";
+"Scarf" = "Шарф";
+"Jacket" = "Жакет";
+"Poncho" = "Пончо";
+"Bag" = "Сумка";
+"Apply" = "Применить";
+
+// profile tab
+"My Address" = "Мой адрес";
+"Account" = "Аккаунт";
+"My Orders" = "Мои заказы";
+"Language" = "Язык";
+"Sign Out" = "Выйти";
+"Your address" = "Ваш адрес";
+"account verified" = "аккаунт проверен";
+"Orders History" = "История заказов";
+"Ordered items:" = "Заказано:";
+"Quantity: %lld" = "Кол-во: %lld";
+"Shipment details:" = "Детали доставки:";
+
+// quotes
+"The secret of getting ahead is getting started." = "Секрет успеха в том, чтобы начать.";
+"Everything you can imagine is real." = "Все, что вы можете себе представить, реально.";
+"Do one thing every day that scares you." = "Каждый день делайте что-то одно, что вас пугает.";
+"Do what you feel in your heart to be right – for you’ll be criticized anyway." = "Делайте то, что в глубине души считаете правильным — вас все равно будут критиковать.";
+"Whatever you are, be a good one." = "Не важно кто ты - будь хорошим.";
+
+// navigation
+"Back" = "Назад";
+"Clear" = "Очистить";
+"Continue Shopping" = "Продолжить шопиться";
+
+// wishlist & bag
+"Wishlist" = "Список желаний";
+"My Bag" = "Моя корзина";
+"Promo code" = "Промо код";
+"Total amount" = "Общая сумма";
+"enter code" = "ввести код";
+"Continue" = "Далее";
+"Add" = "Добавить";
+"Delete" = "Удалить";
+"Oh no! Looks like your bag is empty." = "О, нет! Похоже, твоя корзина пуста.";
+"Hmm! Can't find anything in your wishlist." = "Хм! Ничего не могу найти в вашем списке желаний.";
+
+// payment
+"Step %lld" = "Шаг %lld";
+"Shipping" = "Доставка";
+"Payment" = "Оплата";
+"Phone Number" = "Телефонный номер";
+"Phone number cannot be empty." = "Номер телефона не может быть пустым.";
+"Address" = "Адрес";
+"Address cannot be empty." = "Адрес не может быть пустым.";
+"City" = "Город";
+"City cannot be empty." = "Город не может быть пустым.";
+"Zip Code" = "Почтовый индекс";
+"Zip Code cannot be empty." = "Почтовый индекс не может быть пустым.";
+"Nearest Subway Station" = "Ближайшая станция метро";
+"Nearest Subway Station cannot be empty." = "Ближайшая станция метро не может быть пустой.";
+"Shipping Method" = "Способ доставки";
+"Subway Delivery" = "К метро";
+"Address Delivery" = "На адрес";
+"Continue to Payment" = "Перейти к оплате";
+"Free" = "Бесплатно";
+"❗Currently we support only cash payment. Don't worry, online payment is coming soon!" = "❗В настоящее время мы поддерживаем только оплату наличными. Не волнуйтесь, онлайн оплата скоро появится!";
+"Total price for %lld ordered items is" = "Общая стоимость %lld заказанных товаров составляет";
+"I have exact cash amount" = "У меня есть точная сумма наличными";
+"I'll require change" = "Мне понадобится сдача";
+"I have ₼ " = "У меня есть ₼ ";
+"Courier will return ₼ %@" = "Курьер вернет ₼ %@";
+"Order" = "Заказать";
+"Congrats!" = "Поздравляем!";
+"Thank you for choosing us. Your order will be shipped in 1-2 working days." = "Спасибо, что выбрали нас. Ваш заказ будет отправлен в течение 1-2 рабочих дней.";

@@ -124,7 +124,7 @@ struct FilterView: View {
                 List {
                     ForEach(filterProductOptions.indices, id: \.self) { index in
                         HStack {
-                            Text(filterProductOptions[index].name)
+                            Text(NSLocalizedString(filterProductOptions[index].name, comment: ""))
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(filterProductOptions[index].isSelected ? Color.blue : Color.gray)

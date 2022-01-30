@@ -21,7 +21,7 @@ struct ProfileOptionsView: View {
                 } label: {
                     OptionRowView(
                         iconSystemName: "mappin",
-                        optionName: "My Address",
+                        optionName: NSLocalizedString("My Address", comment: ""),
                         navigationLink: true
                     )
                 }
@@ -34,7 +34,7 @@ struct ProfileOptionsView: View {
                 } label: {
                     OptionRowView(
                         iconSystemName: "person.fill",
-                        optionName: "Account",
+                        optionName: NSLocalizedString("Account", comment: ""),
                         navigationLink: true
                     )
                 }
@@ -52,7 +52,7 @@ struct ProfileOptionsView: View {
                 } label: {
                     OptionRowView(
                         iconSystemName: "shippingbox.fill",
-                        optionName: "My Orders",
+                        optionName: NSLocalizedString("My Orders", comment: ""),
                         navigationLink: true
                     )
                 }
@@ -65,7 +65,7 @@ struct ProfileOptionsView: View {
                 } label: {
                     OptionRowView(
                         iconSystemName: "globe",
-                        optionName: "Language",
+                        optionName: NSLocalizedString("Language", comment: ""),
                         navigationLink: true
                     )
                 }
@@ -81,7 +81,7 @@ struct ProfileOptionsView: View {
             }) {
                 OptionRowView(
                     iconSystemName: "arrow.left.circle.fill",
-                    optionName: "Sign Out",
+                    optionName: NSLocalizedString("Sign Out", comment: ""),
                     navigationLink: false
                 )
                     .foregroundColor(.red)

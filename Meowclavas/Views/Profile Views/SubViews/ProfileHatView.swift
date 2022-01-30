@@ -11,11 +11,11 @@ struct ProfileHatView: View {
     let fullName = UserDefaults.standard.string(forKey: "userFullName")
     
     @State private var userQuotes: [String] = [
-        "The secret of getting ahead is getting started.",
-        "Everything you can imagine is real.",
-        "Do one thing every day that scares you.",
-        "Do what you feel in your heart to be right – for you’ll be criticized anyway.",
-        "Whatever you are, be a good one."
+        NSLocalizedString("The secret of getting ahead is getting started.", comment: ""),
+        NSLocalizedString("Everything you can imagine is real.", comment: ""),
+        NSLocalizedString("Do one thing every day that scares you.", comment: ""),
+        NSLocalizedString("Do what you feel in your heart to be right – for you’ll be criticized anyway.", comment: ""),
+        NSLocalizedString("Whatever you are, be a good one.", comment: "")
     ]
     
     // random picture generator

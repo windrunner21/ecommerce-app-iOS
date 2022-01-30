@@ -18,7 +18,7 @@ struct SizePickerView: View {
                 HStack(spacing: 25) {
                     ForEach(Size.allCases, id: \.self) { size in
                         if size == sizeSelected {
-                            Text(size.rawValue)
+                            Text(NSLocalizedString(size.rawValue, comment: ""))
                                 .bold()
                                 .foregroundColor(.gray)
                                 .textCase(.uppercase)
@@ -32,7 +32,7 @@ struct SizePickerView: View {
                                 )
                                 .shadow(radius: 3)
                         } else {
-                            Text(size.rawValue)
+                            Text(NSLocalizedString(size.rawValue, comment: ""))
                                 .bold()
                                 .foregroundColor(.gray)
                                 .textCase(.uppercase)

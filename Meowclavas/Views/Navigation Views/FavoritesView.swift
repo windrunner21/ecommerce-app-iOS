@@ -22,6 +22,7 @@ struct FavoritesView: View {
                     LottieView(name: "wishlist-empty", loopMode: .loop)
                         .frame(width: UIScreen.main.bounds.size.width / 1.5, height: UIScreen.main.bounds.size.height / 4)
                     Text("Hmm! Can't find anything in your wishlist.")
+                        .multilineTextAlignment(.center)
                     Spacer()
                 }
                 .navigationTitle("Wishlist")

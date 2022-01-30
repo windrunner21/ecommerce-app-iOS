@@ -12,14 +12,14 @@ struct PaymentView: View {
     @State private var step3Active = false
     
     var stepper: Stepper {
-        var result: Stepper = Stepper(count: 1, title: "Shipping")
+        var result: Stepper = Stepper(count: 1, title: NSLocalizedString("Shipping", comment: ""))
         
         if !step2Active && !step3Active {
-            result = Stepper(count: 1, title: "Shipping")
+            result = Stepper(count: 1, title: NSLocalizedString("Shipping", comment: ""))
         }
         
         if step2Active {
-            result = Stepper(count: 2, title: "Payment")
+            result = Stepper(count: 2, title: NSLocalizedString("Payment", comment: ""))
         }
         
         if step3Active {

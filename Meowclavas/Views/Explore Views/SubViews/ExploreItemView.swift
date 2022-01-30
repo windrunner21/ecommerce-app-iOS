@@ -31,12 +31,14 @@ struct ExploreItemView: View {
                 .clipped()
             
             VStack(spacing: 10.0) {
-                Text(categoryName)
+                Text(NSLocalizedString(categoryName, comment: ""))
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
                 
-                Text(categoryCallout)
+                
+                Text(NSLocalizedString(categoryCallout, comment: ""))
                     .textCase(.uppercase)
                     .foregroundColor(.white)
                     

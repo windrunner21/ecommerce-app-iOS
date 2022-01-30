@@ -20,12 +20,12 @@ struct ShippingMethodView: View {
                 .font(.system(size: 24))
                 .foregroundColor(checked ?
                                     .green : .primary)
-            Text(option)
+            Text(NSLocalizedString(option, comment: ""))
                 .foregroundColor(checked ?
                                     .primary : Color(UIColor.systemGray2))
                 .font(.system(size: 19, weight: .semibold))
             Spacer()
-            Text(free ? "( Free )" : "( + ₼ 10.00 )")
+            Text(free ? "( \(NSLocalizedString("Free", comment: "")) )" : "( + ₼ 10.00 )")
                 .foregroundColor(checked ?
                                     .primary : Color(UIColor.systemGray2))
         }

@@ -35,3 +35,116 @@
 "If you need help resetting your password, we can help by sending you a link to reset it." = "If you need help resetting your password, we can help by sending you a link to reset it.";
 "Success! Go Back" = "Success! Go Back";
 "Send" = "Send";
+
+// main tabs
+"Featured" = "Featured";
+"Explore" = "Explore";
+"Profile" = "Profile";
+
+// featured tab
+"Hot Sale" = "Hot Sale";
+"Designer Collection" = "Designer Collection";
+"Top Trends" = "Top Trends";
+"Regular" = "Regular";
+"Color" = "Color";
+"Size" = "Size";
+"Color:" = "Color:";
+"Size: %@" = "Size: %@";
+"Please select a valid color" = "Please select a valid color";
+"Head size (sm)" =  "Head size (sm)";
+"Please select a valid size" = "Please select a valid size";
+"Add to Bag" = "Add to Bag";
+"Added to Bag" = "Added to Bag";
+"Baby" = "Baby";
+"Kid" = "Kid";
+"Adult" = "Adult";
+"Adult XL" = "Adult XL";
+"Custom" = "Custom";
+
+// explore tab
+"Be unique. Be yourself." = "Be unique. Be yourself.";
+"Up to 50% off." = "Up to 50% off.";
+"Browse balaclavas collection." = "Browse balaclavas collection.";
+"Uhh? Try changing filter parameters." = "Uhh? Try changing filter parameters.";
+" item found" = " item found";
+" items found" = " items found";
+
+// filter
+"Filters" = "Filters";
+"Min price" = "Min price";
+"Max price" = "Max price";
+"Products" = "Products";
+"Select All" = "Select All";
+"Balaclava" = "Balaclava";
+"Hat" = "Hat";
+"Scarf" = "Scarf";
+"Jacket" = "Jacket";
+"Poncho" = "Poncho";
+"Bag" = "Bag";
+"Apply" = "Apply";
+
+// profile tab
+"My Address" = "My Address";
+"Account" = "Account";
+"My Orders" = "My Orders";
+"Language" = "Language";
+"Sign Out" = "Sign Out";
+"Your address" = "Your address";
+"account verified" = "account verified";
+"Orders History" = "Orders History";
+"Ordered items:" = "Ordered items:";
+"Quantity: %lld" = "Quantity: %lld";
+"Shipment details:" = "Shipment details:";
+
+// quotes
+"The secret of getting ahead is getting started." = "The secret of getting ahead is getting started.";
+"Everything you can imagine is real." = "Everything you can imagine is real.";
+"Do one thing every day that scares you." = "Do one thing every day that scares you.";
+"Do what you feel in your heart to be right – for you’ll be criticized anyway." = "Do what you feel in your heart to be right – for you’ll be criticized anyway.";
+"Whatever you are, be a good one." = "Whatever you are, be a good one.";
+
+// navigation
+"Back" = "Back";
+"Clear" = "Clear";
+"Continue Shopping" = "Continue Shopping";
+
+// wishlist & bag
+"Wishlist" = "Wishlist";
+"My Bag" = "My Bag";
+"Promo code" = "Promo code";
+"Total amount" = "Total amount";
+"enter code" = "enter code";
+"Continue" = "Continue";
+"Add" = "Add";
+"Delete" = "Delete";
+"Oh no! Looks like your bag is empty." = "Oh no! Looks like your bag is empty.";
+"Hmm! Can't find anything in your wishlist." = "Hmm! Can't find anything in your wishlist.";
+
+// payment
+"Step %lld" = "Step %lld";
+"Shipping" = "Shipping";
+"Payment" = "Payment";
+"Phone Number" = "Phone Number";
+"Phone number cannot be empty." = "Phone number cannot be empty.";
+"Address" = "Address";
+"Address cannot be empty." = "Address cannot be empty.";
+"City" = "City";
+"City cannot be empty." = "City cannot be empty.";
+"Zip Code" = "Zip Code";
+"Zip Code cannot be empty." = "Zip Code cannot be empty.";
+"Nearest Subway Station" = "Nearest Subway Station";
+"Nearest Subway Station cannot be empty." = "Nearest Subway Station cannot be empty.";
+"Shipping Method" = "Shipping Method";
+"Subway Delivery" = "Subway Delivery";
+"Address Delivery" = "Address Delivery";
+"Continue to Payment" = "Continue to Payment";
+"Free" = "Free";
+"❗Currently we support only cash payment. Don't worry, online payment is coming soon!" = "❗Currently we support only cash payment. Don't worry, online payment is coming soon!";
+"Total price for %lld ordered items is" = "Total price for %lld ordered items is";
+"I have exact cash amount" = "I have exact cash amount";
+"I'll require change" = "I'll require change";
+"I have ₼ " = "I have ₼ ";
+"Courier will return ₼ %@" = "Courier will return ₼ %@";
+"Order" = "Order";
+"Congrats!" = "Congrats!";
+"Thank you for choosing us. Your order will be shipped in 1-2 working days." = "Thank you for choosing us. Your order will be shipped in 1-2 working days.";

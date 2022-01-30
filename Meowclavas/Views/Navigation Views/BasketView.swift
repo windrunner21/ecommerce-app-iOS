@@ -35,6 +35,7 @@ struct BasketView: View {
                     LottieView(name: "shopping-bag-empty", loopMode: .loop)
                         .frame(width: UIScreen.main.bounds.size.width / 2, height: UIScreen.main.bounds.size.height / 4)
                     Text("Oh no! Looks like your bag is empty.")
+                        .multilineTextAlignment(.center)
                     Spacer()
                 }
                 .navigationTitle("My Bag")
@@ -62,7 +63,7 @@ struct BasketView: View {
                                     Spacer()
                                     
                                     HStack(alignment: .center) {
-                                        Text("Size: \(product.size!.rawValue)")
+                                        Text("Size: \(NSLocalizedString(product.size!.rawValue, comment: ""))")
                                         Divider()
                                         HStack {
                                             Text("Color:")
